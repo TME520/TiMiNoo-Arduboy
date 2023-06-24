@@ -1,5 +1,5 @@
 # TiMiNoo
-Cute 1 bit VPet for Arduino - Feed, cuddle, clean and educate your own unique cat.
+Cute 1 bit VPet for Arduboy - Feed, cuddle, clean and educate your own unique cat.
 
 2 mini games, 7 food types, friends visits and presents, one button action, no sound, no death.
 
@@ -69,7 +69,7 @@ Earn points every time you take action and increase your score.
 
 ## How to play
 ### Starting the game
-Plug your TiMiNoo to a 5V Micro USB charger, a new game will start.
+Turn your Arduboy on in order to start a new game.
 There is no save feature, no scoring, no experience. Every run is a fresh beginning with new statistics.
 TiMiNoo cannot die.
 ### Understand what your TiMiNoo wants
@@ -98,37 +98,7 @@ Press the button to kiss your furry cuttie.
 ![clean](./assets/icons/bubbles.png "Clean")
 The cat will look at a bubble icon.
 Press the button in order to scrub all that dust off its fur.
-## How to build your own
-
-![Prototype board](./assets/proto5.jpg "TiMiNoo")
-
-### Items
-- 1x Arduino Leonardo R3
-- 1x Button
-- 1x 128*64 OLED screen
-- 1x 10k Ohm resistor
-- 1x breadboard or prototyping board
-- 1x Acrylic enclosure for UNO / Leonardo
-- Enough jumper cables to assemble the circuitry
-### Assembly
-![Circuit top](./assets/timinoo_circuit_top.jpg "TiMiNoo circuit top")
-![Circuit bottom](./assets/timinoo_circuit_bottom.jpg "TiMiNoo circuit bottom")
-![Circuit](./assets/timinoo_circuit.jpg "TiMiNoo circuit")
-#### Screen pinout
-- DC -> D9
-- CS -> D10
-- MOSI -> D11
-- CLOCK -> D13
-- RES -> RST
-- VCC -> 5V
-- GND -> GND
-#### Button
-- GND -> GND
-- VCC -> 3V
-- SIG -> D2
 ### Installation instructions
-Use [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) to upload `timinoo.ino` to your Arduino Leonardo.
-Make sure you use a Micro USB cable that supports data transfer, as some cables do not have data lines wired and only provide charging capability.
-
+Use [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) to upload `timinoo.ino` to your Arduboy.
 ## Commercial status
 TiMiNoo is an open source project that is not meant to be sold. Please note the cat sprites and the frames are under a [Creative Commons Attribution-NonCommercial 4.0 International CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license that explicitly prohibits commercial use. I'm 100% OK with this.
