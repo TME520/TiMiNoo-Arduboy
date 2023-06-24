@@ -625,30 +625,31 @@ void loop() {
           break;
         case 1:
           // Eat food
+          tinyfont.setCursor(0, 58);
           switch (selectedFood) {
             case 1:
               u8g.drawXBMP(50, 14, strawberry_28x28_width, strawberry_28x28_height, strawberry_28x28_bits);
-              u8g.drawStr(0, 58, "Yummy strawberry");
+              tinyfont.print("Yummy strawberry");
               break;
             case 2:
               u8g.drawXBMP(50, 14, grape_28x28_width, grape_28x28_height, grape_28x28_bits);
-              u8g.drawStr(0, 58, "  Fresh grapes  ");
+              tinyfont.print("  Fresh grapes  ");
               break;
             case 3:
               u8g.drawXBMP(50, 14, milk_28x28_width, milk_28x28_height, milk_28x28_bits);
-              u8g.drawStr(0, 58, "   Farm milk    ");
+              tinyfont.print("   Farm milk    ");
               break;
             case 4:
               u8g.drawXBMP(50, 14, orange_28x28_width, orange_28x28_height, orange_28x28_bits);
-              u8g.drawStr(0, 58, "  Juicy orange  ");
+              tinyfont.print("  Juicy orange  ");
               break;
             case 5:
               u8g.drawXBMP(50, 14, apple_28x28_width, apple_28x28_height, apple_28x28_bits);
-              u8g.drawStr(0, 58, "  Tasty apple   ");
+              tinyfont.print("  Tasty apple   ");
               break;
             case 6:
               u8g.drawXBMP(50, 14, ghost_28x28_width, ghost_28x28_height, ghost_28x28_bits);
-              u8g.drawStr(0, 58, "    No food     ");
+              tinyfont.print("    No food     ");
               break;
           }
           feedCounter += 1;
@@ -682,7 +683,8 @@ void loop() {
               break;
           }
           if (selectedFood != 6) {
-            u8g.drawStr(0, 59, "      Yum!      ");
+            tinyfont.setCursor(0, 59);
+            tinyfont.print("      Yum!      ");
           }
           feedCounter += 1;
           if (feedCounter>250) {
@@ -698,6 +700,7 @@ void loop() {
       break;
     case 3:
       // Cuddle
+      tinyfont.setCursor(70, 40);
       u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
       cuddleCounter += 1;
       if (cuddleCounter<31) {
@@ -709,10 +712,10 @@ void loop() {
         u8g.drawXBMP(92, 10, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
         u8g.drawXBMP(104, 15, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
         u8g.setFont(u8g_font_baby);
-        u8g.drawStr(70, 40, "I love you too");
+        tinyfont.print("I love you too");
       } else if (cuddleCounter>160 && cuddleCounter < 240) {
         u8g.setFont(u8g_font_baby);
-        u8g.drawStr(70, 40, "I love you too");
+        tinyfont.print("I love you too");
       } else if (cuddleCounter==240) {
         superHappyCounter = 100;
         score += 50;
@@ -742,7 +745,8 @@ void loop() {
           u8g.setFont(u8g_font_unifont);
           u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
           u8g.drawXBMP(97, 40, koko_le_snail_26x22_width, koko_le_snail_26x22_height, koko_le_snail_26x22_bits);
-          u8g.drawStr(0, 58, "       Hi! >    ");
+          tinyfont.setCursor(0, 58);
+          tinyfont.print("       Hi! >    ");
           snailCounter += 1;
           if (snailCounter>200) {
             snailCounter = 0;
@@ -755,10 +759,8 @@ void loop() {
           u8g.drawLine(0, 56, 127, 56);
           u8g.setFont(u8g_font_baby);
           u8g.drawXBMP(97, 21, koko_le_snail_26x22_width, koko_le_snail_26x22_height, koko_le_snail_26x22_bits);
-          u8g.drawStr(16, 18, "Get ready for a");
-          u8g.drawStr(16, 24, "new lesson with...");
-          u8g.drawStr(16, 30, "");
-          u8g.drawStr(16, 36, "~ Koko Le Snail ~");
+          tinyfont.setCursor(16, 18);
+          tinyfont.print("Get ready for a\nnew lesson with...\n\n~ Koko Le Snail ~");
           snailCounter += 1;
           if (snailCounter>300) {
             snailCounter = 0;
@@ -771,42 +773,25 @@ void loop() {
           u8g.drawLine(0, 56, 127, 56);
           u8g.setFont(u8g_font_baby);
           u8g.drawXBMP(97, 21, koko_le_snail_26x22_width, koko_le_snail_26x22_height, koko_le_snail_26x22_bits);
+          tinyfont.setCursor(16, 18);
           switch (randomQuote) {
             case 1:
-              u8g.drawStr(16, 18, "Sometimes dogs");
-              u8g.drawStr(16, 24, "are grey.");
-              u8g.drawStr(16, 30, "");
-              u8g.drawStr(16, 36, "  -- Koko");
+              tinyfont.print("Sometimes dogs\nare grey.\n\n  -- Koko");
               break;
             case 2:
-              u8g.drawStr(16, 18, "Do not sneeze");
-              u8g.drawStr(16, 24, "on the bus.");
-              u8g.drawStr(16, 30, "");
-              u8g.drawStr(16, 36, "  -- Koko");
+              tinyfont.print("Do not sneeze\non the bus.\n\n  -- Koko");
               break;
             case 3:
-              u8g.drawStr(16, 18, "Always wear");
-              u8g.drawStr(16, 24, "pants.");
-              u8g.drawStr(16, 30, "");
-              u8g.drawStr(16, 36, "  -- Koko");
+              tinyfont.print("Always wear\npants.\n\n  -- Koko");
               break;
             case 4:
-              u8g.drawStr(16, 18, "Never yawn");
-              u8g.drawStr(16, 24, "during class.");
-              u8g.drawStr(16, 30, "");
-              u8g.drawStr(16, 36, "  -- Koko");
+              tinyfont.print("Never yawn\nduring class.\n\n  -- Koko");
               break;
             case 5:
-              u8g.drawStr(16, 18, "Wash your hands");
-              u8g.drawStr(16, 24, "after lunch.");
-              u8g.drawStr(16, 30, "");
-              u8g.drawStr(16, 36, "  -- Koko");
+              tinyfont.print("Wash your hands\nafter lunch.\n\n  -- Koko");
               break;
             case 6:
-              u8g.drawStr(16, 18, "Pull my finger...");
-              u8g.drawStr(16, 24, "teehee!");
-              u8g.drawStr(16, 30, "");
-              u8g.drawStr(16, 36, "  -- Koko");
+              tinyfont.print("Pull my finger...\nteehee!\n\n  -- Koko");
               break;
           }
           snailCounter += 1;
@@ -819,7 +804,8 @@ void loop() {
           // Score
           u8g.setFont(u8g_font_unifont);
           u8g.drawXBMP(51, 12, study_26x28_width, study_26x28_height, study_26x28_bits);
-          u8g.drawStr(0, 58, "  + 1 Education ");
+          tinyfont.setCursor(0, 58);
+          tinyfont.print("  + 1 Education ");
           snailCounter += 1;
           if (snailCounter>300) {
             snailCounter = 0;
@@ -890,12 +876,12 @@ void loop() {
           break;
         case 1:
           u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
-          // u8g.drawXBMP(72, 22, diamond_28x24_width, diamond_28x24_height, diamond_28x24_bits);
           u8g.drawXBMP(69, 50, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
           u8g.drawXBMP(81, 50, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
           u8g.drawXBMP(93, 50, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
           u8g.setFont(u8g_font_unifont);
-          u8g.drawStr(0, 16, "      All clean ");
+          tinyfont.setCursor(0, 16);
+          tinyfont.print("      All clean ");
           cleanCounter += 1;
           if (cleanCounter>300) {
             cleanCounter = 0;
@@ -914,7 +900,8 @@ void loop() {
         checkButton();
         animationStepMax = 7;
         u8g.setFont(u8g_font_baby);
-        u8g.drawStr(13, 6, "xxxx Catsino Deluxe xxxx");
+        tinyfont.setCursor(13, 6);
+        tinyfont.print("xxxx Catsino Deluxe xxxx");
         u8g.drawXBMP(3, 18, casino_frame_40x40_width, casino_frame_40x40_height, casino_frame_40x40_bits);
         u8g.drawXBMP(44, 18, casino_frame_40x40_width, casino_frame_40x40_height, casino_frame_40x40_bits);
         u8g.drawXBMP(85, 18, casino_frame_40x40_width, casino_frame_40x40_height, casino_frame_40x40_bits);
@@ -966,41 +953,42 @@ void loop() {
       } else if (gameSequence == 1) {
         // See the result
         u8g.setFont(u8g_font_unifont);
+        tinyfont.setCursor(0, 58);
         switch (gamePick) {
           case 0:
             // Ghost
             u8g.drawXBMP(50, 12, ghost_28x28_width, ghost_28x28_height, ghost_28x28_bits);
-            u8g.drawStr(0, 58, " Nothing, boo!  ");
+            tinyfont.print(" Nothing, boo!  ");
             break;
           case 1:
             // Bar
             u8g.drawXBMP(50, 12, bar_28x28_width, bar_28x28_height, bar_28x28_bits);
-            u8g.drawStr(0, 58, "  + 1 of all!   ");
+            tinyfont.print("  + 1 of all!   ");
             break;
           case 2:
             // Strawberry
             u8g.drawXBMP(50, 12, strawberry_28x28_width, strawberry_28x28_height, strawberry_28x28_bits);
-            u8g.drawStr(0, 58, " + 1 strawberry ");
+            tinyfont.print(" + 1 strawberry ");
             break;
           case 3:
             // Apple
             u8g.drawXBMP(50, 12, apple_28x28_width, apple_28x28_height, apple_28x28_bits);
-            u8g.drawStr(0, 58, "   + 1 apple    ");
+            tinyfont.print("   + 1 apple    ");
             break;
           case 4:
             // Grape
             u8g.drawXBMP(50, 12, grape_28x28_width, grape_28x28_height, grape_28x28_bits);
-            u8g.drawStr(0, 58, "   + 1 grape    ");
+            tinyfont.print("   + 1 grape    ");
             break;
           case 5:
             // Milk
             u8g.drawXBMP(50, 12, milk_28x28_width, milk_28x28_height, milk_28x28_bits);
-            u8g.drawStr(0, 58, "    + 1 milk    ");
+            tinyfont.print("    + 1 milk    ");
             break;
           case 6:
             // Orange
             u8g.drawXBMP(50, 12, orange_28x28_width, orange_28x28_height, orange_28x28_bits);
-            u8g.drawStr(0, 58, "   + 1 orange   ");
+            tinyfont.print("   + 1 orange   ");
             break;
         }
         gameCounter += 1;
@@ -1022,7 +1010,8 @@ void loop() {
           // Knock
           checkButton();
           u8g.drawXBMP(50, 14, door_28x30_width, door_28x30_height, door_28x30_bits);
-          u8g.drawStr(40, 59, "Knock knock!");
+          tinyfont.setCursor(40, 59);
+          tinyfont.print("Knock knock!");
           randomVisitCounter += 1;
           if (randomVisitCounter>4000) {
             randomVisitSequence = 1;
@@ -1033,7 +1022,8 @@ void loop() {
           // Hello
           u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
           u8g.drawXBMP(96, 14, cindy_28x26_width, cindy_28x26_height, cindy_28x26_bits);
-          u8g.drawStr(45, 59, "Hi friend!");
+          tinyfont.setCursor(45, 59);
+          tinyfont.print("Hi friend!");
           randomVisitCounter += 1;
           if (randomVisitCounter>200) {
             randomVisitSequence = 2;
@@ -1044,11 +1034,12 @@ void loop() {
           // Gift
           u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
           u8g.drawXBMP(96, 14, cindy_28x26_width, cindy_28x26_height, cindy_28x26_bits);
+          tinyfont.setCursor(45, 59);
           if (randomVisit<51) {
             // Matcha
-            u8g.drawStr(45, 59, "I got matcha tea!");
+            tinyfont.print("I got matcha tea!");
           } else {
-            u8g.drawStr(45, 59, "I got coco cake!");
+            tinyfont.print("I got coco cake!");
           }
           randomVisitCounter += 1;
           if (randomVisitCounter>200) {
@@ -1066,7 +1057,8 @@ void loop() {
             u8g.drawXBMP(49, 14, coco_cake_28x32_width, coco_cake_28x32_height, coco_cake_28x32_bits);
           }
           u8g.drawXBMP(96, 14, cindy_28x26_width, cindy_28x26_height, cindy_28x26_bits);
-          u8g.drawStr(45, 59, "Have some <3");
+          tinyfont.setCursor(45, 59);
+          tinyfont.print("Have some <3");
           randomVisitCounter += 1;
           if (randomVisitCounter>200) {
             randomVisitSequence = 4;
@@ -1082,7 +1074,8 @@ void loop() {
           } else {
             u8g.drawXBMP(49, 14, coco_cake_28x32_width, coco_cake_28x32_height, coco_cake_28x32_bits);
           }
-          u8g.drawStr(0, 59, "      Yum!      ");
+          tinyfont.setCursor(0, 59);
+          tinyfont.print("      Yum!      ");
           randomVisitCounter += 1;
           if (randomVisitCounter>200) {
             randomVisitSequence = 0;
@@ -1098,7 +1091,8 @@ void loop() {
     case 99:
       // Show version
       u8g.setFont(u8g_font_unifont);
-      u8g.drawStr(0, 50, " TiMiNoo v1.2.8 ");
+      tinyfont.setCursor(0, 50);
+      tinyfont.print(" TiMiNoo v1.2.8 ");
       versionCounter += 1;
       if (versionCounter>400) {
         gameMode = 0;
@@ -1109,7 +1103,8 @@ void loop() {
     // Score
     u8g.setFont(u8g_font_baby);
     ltoa(score, scoreString, 10);
-    u8g.drawStr(81, 60, scoreString);
+    tinyfont.setCursor(81, 60);
+    tinyfont.print(scoreString);
   }
   delay(10);
   
