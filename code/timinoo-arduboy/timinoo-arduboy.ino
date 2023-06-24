@@ -192,7 +192,7 @@ const uint8_t PROGMEM ghost_28x28[] = {
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x03, 0x0f, 0x0f, 0x0f, 0x0f, 0x00, 0x00, 0x03, 0x03, 0x0f, 0x0f, 0x0f, 0x0f, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 };
 
-const uint8_t PROGMEM happy_28x28[] = {
+const uint8_t PROGMEM happy_cat_28x28[] = {
 28, 28,
 0xc0, 0xc0, 0xf0, 0xf0, 0xfc, 0xfc, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0xfc, 0xf0, 0xf0, 0xc0, 0xc0, 
 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc0, 0xc0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc0, 0xc0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
@@ -436,7 +436,6 @@ void loop() {
     lastCatEducationCheck = 0;
     lastCatEntertainmentCheck = 0;
   }
-  // ltoa(frameCounter, frameCounterString, 10);
   animationStep += 1;
   if (animationStep>animationStepMax) {
     animationStep=1;
@@ -517,30 +516,30 @@ void loop() {
       animationStepMax = 4;
       checkButton();
       // Icon frame
-      u8g.drawXBMP(69, 1, speech_bubble_56x48_width, speech_bubble_56x48_height, speech_bubble_56x48_bits);
+      Sprites::drawSelfMasked(69, 1, speech_bubble_56x48, 0);
       // Icon (always happy)
       if (superHappyCounter<1) {
-        u8g.drawXBMP(87, 12, happy_cat_28x28_width, happy_cat_28x28_height, happy_cat_28x28_bits);
+        Sprites::drawSelfMasked(87, 12, happy_cat_28x28, 0);
       } else {
-        u8g.drawXBMP(87, 12, super_happy_28x28_width, super_happy_28x28_height, super_happy_28x28_bits);
+        Sprites::drawSelfMasked(87, 12, super_happy_28x28, 0);
         superHappyCounter -= 1;
       }
       switch (animationStep) {
         case 1:
           checkButton();
-          u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
+          Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
           break;
         case 2:
           checkButton();
-          u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_002_width, cat_sitting_upscaled4x_002_height, cat_sitting_upscaled4x_002_bits);
+          Sprites::drawSelfMasked(8, 8, cat_sitting_002_48x48, 0);
           break;
         case 3:
           checkButton();
-          u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_003_width, cat_sitting_upscaled4x_003_height, cat_sitting_upscaled4x_003_bits);
+          Sprites::drawSelfMasked(8, 8, cat_sitting_003_48x48, 0);
           break;
         case 4:
           checkButton();
-          u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_004_width, cat_sitting_upscaled4x_004_height, cat_sitting_upscaled4x_004_bits);
+          Sprites::drawSelfMasked(8, 8, cat_sitting_004_48x48, 0);
           break;
       }
       break;
@@ -549,52 +548,52 @@ void loop() {
       animationStepMax = 4;
       checkButton();
       // Icon frame
-      u8g.drawXBMP(69, 1, speech_bubble_56x48_width, speech_bubble_56x48_height, speech_bubble_56x48_bits);
+      Sprites::drawSelfMasked(69, 1, speech_bubble_56x48, 0);
       // Icon (anything else than happy)
       switch (currentIcon) {
         case 2:
           // Play
-          u8g.drawXBMP(85, 16, play_32x20_width, play_32x20_height, play_32x20_bits);
+          Sprites::drawSelfMasked(85, 16, play_32x20, 0);
           break;
         case 3:
           // Study
-          u8g.drawXBMP(88, 12, study_26x28_width, study_26x28_height, study_26x28_bits);
+          Sprites::drawSelfMasked(88, 12, study_26x28, 0);
           break;
         case 4:
           // Cuddle
-          u8g.drawXBMP(89, 14, cuddle_24x24_width, cuddle_24x24_height, cuddle_24x24_bits);
+          Sprites::drawSelfMasked(89, 14, cuddle_24x24, 0);
           break;
         case 5:
           // Bubbles
-          u8g.drawXBMP(86, 11, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
+          Sprites::drawSelfMasked(86, 11, bubbles_30x30, 0);
           break;
         case 6:
           // Pizza
-          u8g.drawXBMP(88, 12, pizza_26x28_width, pizza_26x28_height, pizza_26x28_bits);
+          Sprites::drawSelfMasked(88, 12, pizza_26x28, 0);
           break;
       }
       switch (animationStep) {
         case 1:
           checkButton();
-          u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
+          Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
           break;
         case 2:
           checkButton();
-          u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_006_width, cat_sitting_upscaled4x_006_height, cat_sitting_upscaled4x_006_bits);
+          Sprites::drawSelfMasked(8, 8, cat_sitting_006_48x48, 0);
           break;
         case 3:
           checkButton();
-          u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_007_width, cat_sitting_upscaled4x_007_height, cat_sitting_upscaled4x_007_bits);
+          Sprites::drawSelfMasked(8, 8, cat_sitting_007_48x48, 0);
           break;
         case 4:
           checkButton();
-          u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_004_width, cat_sitting_upscaled4x_004_height, cat_sitting_upscaled4x_004_bits);
+          Sprites::drawSelfMasked(8, 8, cat_sitting_004_48x48, 0);
           break;
       }
       break;
     case 2:
       // Feed
-      u8g.setFont(u8g_font_unifont);
+      // u8g.setFont(u8g_font_unifont);
       switch (feedSequence) {
         case 0:
           // Select food
@@ -628,27 +627,27 @@ void loop() {
           tinyfont.setCursor(0, 58);
           switch (selectedFood) {
             case 1:
-              u8g.drawXBMP(50, 14, strawberry_28x28_width, strawberry_28x28_height, strawberry_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, strawberry_28x28, 0);
               tinyfont.print("Yummy strawberry");
               break;
             case 2:
-              u8g.drawXBMP(50, 14, grape_28x28_width, grape_28x28_height, grape_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, grape_28x28, 0);
               tinyfont.print("  Fresh grapes  ");
               break;
             case 3:
-              u8g.drawXBMP(50, 14, milk_28x28_width, milk_28x28_height, milk_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, milk_28x28, 0);
               tinyfont.print("   Farm milk    ");
               break;
             case 4:
-              u8g.drawXBMP(50, 14, orange_28x28_width, orange_28x28_height, orange_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, orange_28x28, 0);
               tinyfont.print("  Juicy orange  ");
               break;
             case 5:
-              u8g.drawXBMP(50, 14, apple_28x28_width, apple_28x28_height, apple_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, apple_28x28, 0);
               tinyfont.print("  Tasty apple   ");
               break;
             case 6:
-              u8g.drawXBMP(50, 14, ghost_28x28_width, ghost_28x28_height, ghost_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, ghost_28x28, 0);
               tinyfont.print("    No food     ");
               break;
           }
@@ -664,22 +663,22 @@ void loop() {
           break;
         case 2:
           // Yum
-          u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           switch (selectedFood) {
             case 1:
-              u8g.drawXBMP(50, 14, strawberry_28x28_width, strawberry_28x28_height, strawberry_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, strawberry_28x28, 0);
               break;
             case 2:
-              u8g.drawXBMP(50, 14, grape_28x28_width, grape_28x28_height, grape_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, grape_28x28, 0);
               break;
             case 3:
-              u8g.drawXBMP(50, 14, milk_28x28_width, milk_28x28_height, milk_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, milk_28x28, 0);
               break;
             case 4:
-              u8g.drawXBMP(50, 14, orange_28x28_width, orange_28x28_height, orange_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, orange_28x28, 0);
               break;
             case 5:
-              u8g.drawXBMP(50, 14, apple_28x28_width, apple_28x28_height, apple_28x28_bits);
+              Sprites::drawSelfMasked(50, 14, apple_28x28, 0);
               break;
           }
           if (selectedFood != 6) {
@@ -701,20 +700,20 @@ void loop() {
     case 3:
       // Cuddle
       tinyfont.setCursor(70, 40);
-      u8g.drawXBMP(8, 8, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
+      Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
       cuddleCounter += 1;
       if (cuddleCounter<31) {
-        u8g.drawXBMP(80, 45 - cuddleCounter, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
-        u8g.drawXBMP(92, 40 - cuddleCounter, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
-        u8g.drawXBMP(104, 45 - cuddleCounter, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
+        Sprites::drawSelfMasked(80, 45 - cuddleCounter, cuddle_heart_11x10, 0);
+        Sprites::drawSelfMasked(92, 40 - cuddleCounter, cuddle_heart_11x10, 0);
+        Sprites::drawSelfMasked(104, 45 - cuddleCounter, cuddle_heart_11x10, 0);
       } else if (cuddleCounter>30 && cuddleCounter < 161) {
-        u8g.drawXBMP(80, 15, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
-        u8g.drawXBMP(92, 10, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
-        u8g.drawXBMP(104, 15, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
-        u8g.setFont(u8g_font_baby);
+        Sprites::drawSelfMasked(80, 15, cuddle_heart_11x10, 0);
+        Sprites::drawSelfMasked(92, 10, cuddle_heart_11x10, 0);
+        Sprites::drawSelfMasked(104, 15, cuddle_heart_11x10, 0);
+        // u8g.setFont(u8g_font_baby);
         tinyfont.print("I love you too");
       } else if (cuddleCounter>160 && cuddleCounter < 240) {
-        u8g.setFont(u8g_font_baby);
+        // u8g.setFont(u8g_font_baby);
         tinyfont.print("I love you too");
       } else if (cuddleCounter==240) {
         superHappyCounter = 100;
@@ -728,8 +727,8 @@ void loop() {
       switch (lessonSequence) {
         case 0:
           // Snail arrives
-          u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
-          u8g.drawXBMP(kokoXPos, 40, koko_le_snail_26x22_width, koko_le_snail_26x22_height, koko_le_snail_26x22_bits);
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
+          Sprites::drawSelfMasked(kokoXPos, 40, koko_le_snail_26x22, 0);
           kokoXPos -= 1;
           if (kokoXPos < 97) {
             kokoXPos = 97;
@@ -742,9 +741,9 @@ void loop() {
           break;
         case 1:
           // Snail says hello
-          u8g.setFont(u8g_font_unifont);
-          u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
-          u8g.drawXBMP(97, 40, koko_le_snail_26x22_width, koko_le_snail_26x22_height, koko_le_snail_26x22_bits);
+          // u8g.setFont(u8g_font_unifont);
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
+          Sprites::drawSelfMasked(97, 40, koko_le_snail_26x22, 0);
           tinyfont.setCursor(0, 58);
           tinyfont.print("       Hi! >    ");
           snailCounter += 1;
@@ -755,10 +754,10 @@ void loop() {
           break;
         case 2:
           // Introduction
-          u8g.drawLine(0, 8, 127, 8);
-          u8g.drawLine(0, 56, 127, 56);
-          u8g.setFont(u8g_font_baby);
-          u8g.drawXBMP(97, 21, koko_le_snail_26x22_width, koko_le_snail_26x22_height, koko_le_snail_26x22_bits);
+          arduboy.drawLine(0, 8, 127, 8, WHITE);
+          arduboy.drawLine(0, 56, 127, 56, WHITE);
+          // u8g.setFont(u8g_font_baby);
+          Sprites::drawSelfMasked(97, 21, koko_le_snail_26x22, 0);
           tinyfont.setCursor(16, 18);
           tinyfont.print("Get ready for a\nnew lesson with...\n\n~ Koko Le Snail ~");
           snailCounter += 1;
@@ -769,10 +768,10 @@ void loop() {
           break;
         case 3:
           // Snail wisdom quote
-          u8g.drawLine(0, 8, 127, 8);
-          u8g.drawLine(0, 56, 127, 56);
-          u8g.setFont(u8g_font_baby);
-          u8g.drawXBMP(97, 21, koko_le_snail_26x22_width, koko_le_snail_26x22_height, koko_le_snail_26x22_bits);
+          arduboy.drawLine(0, 8, 127, 8, WHITE);
+          arduboy.drawLine(0, 56, 127, 56, WHITE);
+          // u8g.setFont(u8g_font_baby);
+          Sprites::drawSelfMasked(97, 21, koko_le_snail_26x22, 0);
           tinyfont.setCursor(16, 18);
           switch (randomQuote) {
             case 1:
@@ -802,8 +801,8 @@ void loop() {
           break;
         case 4:
           // Score
-          u8g.setFont(u8g_font_unifont);
-          u8g.drawXBMP(51, 12, study_26x28_width, study_26x28_height, study_26x28_bits);
+          // u8g.setFont(u8g_font_unifont);
+          Sprites::drawSelfMasked(51, 12, study_26x28, 0);
           tinyfont.setCursor(0, 58);
           tinyfont.print("  + 1 Education ");
           snailCounter += 1;
@@ -822,7 +821,7 @@ void loop() {
       switch (cleanSequence) {
         case 0:
           // Clean The Cat game
-          u8g.drawXBMP(38, 8, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
+          Sprites::drawSelfMasked(38, 8, cat_sitting_001_48x48, 0);
           checkButton();
           cleanCounter -= 1;
           if (cleanCounter<0) {
@@ -833,53 +832,53 @@ void loop() {
           }
           switch(cleanCounter) {
             case 5 ... 15:
-              u8g.drawXBMP(38, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
+              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
               break;
             case 16 ... 36:
-              u8g.drawXBMP(38, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(58, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
+              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58, 32, bubbles_30x30, 0);
               break;
             case 37 ... 57:
-              u8g.drawXBMP(23, 16, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(38, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(58, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(73, 16, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
+              Sprites::drawSelfMasked(23, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(73, 16, bubbles_30x30, 0);
               break;
             case 58 ... 78:
-              u8g.drawXBMP(23, 16, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(38, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(58, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(73, 16, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(32, 0, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(64, 0, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
+              Sprites::drawSelfMasked(23, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(73, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(32, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(64, 0, bubbles_30x30, 0);
               break;
             case 79 ... 89:
-              u8g.drawXBMP(23, 16, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(38, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(58, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(73, 16, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(0, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(32, 0, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(64, 0, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(96, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
+              Sprites::drawSelfMasked(23, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(73, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(0, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(32, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(64, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(96, 32, bubbles_30x30, 0);
               break;
             case 90 ... 100:
-              u8g.drawXBMP(0, 0, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(32, 0, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(64, 0, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(96, 0, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(0, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(32, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(64, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
-              u8g.drawXBMP(96, 32, bubbles_30x30_width, bubbles_30x30_height, bubbles_30x30_bits);
+              Sprites::drawSelfMasked(0, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(32, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(64, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(96, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(0, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(32, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(64, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(96, 32, bubbles_30x30, 0);
           }
           break;
         case 1:
-          u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
-          u8g.drawXBMP(69, 50, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
-          u8g.drawXBMP(81, 50, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
-          u8g.drawXBMP(93, 50, cuddle_heart_11x10_width, cuddle_heart_11x10_height, cuddle_heart_11x10_bits);
-          u8g.setFont(u8g_font_unifont);
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
+          Sprites::drawSelfMasked(69, 50, cuddle_heart_11x10, 0);
+          Sprites::drawSelfMasked(81, 50, cuddle_heart_11x10, 0);
+          Sprites::drawSelfMasked(93, 50, cuddle_heart_11x10, 0);
+          // u8g.setFont(u8g_font_unifont);
           tinyfont.setCursor(0, 16);
           tinyfont.print("      All clean ");
           cleanCounter += 1;
@@ -899,12 +898,12 @@ void loop() {
         // Roll the dice
         checkButton();
         animationStepMax = 7;
-        u8g.setFont(u8g_font_baby);
+        // u8g.setFont(u8g_font_baby);
         tinyfont.setCursor(13, 6);
         tinyfont.print("xxxx Catsino Deluxe xxxx");
-        u8g.drawXBMP(3, 18, casino_frame_40x40_width, casino_frame_40x40_height, casino_frame_40x40_bits);
-        u8g.drawXBMP(44, 18, casino_frame_40x40_width, casino_frame_40x40_height, casino_frame_40x40_bits);
-        u8g.drawXBMP(85, 18, casino_frame_40x40_width, casino_frame_40x40_height, casino_frame_40x40_bits);
+        Sprites::drawSelfMasked(3, 18, casino_frame_40x40, 0);
+        Sprites::drawSelfMasked(44, 18, casino_frame_40x40, 0);
+        Sprites::drawSelfMasked(85, 18, casino_frame_40x40, 0);
         checkButton();
         if ( (gameCounter % 3) == 0) {
           randomGameIconXPos = random(0, 3);
@@ -924,25 +923,25 @@ void loop() {
         checkButton();
         switch (randomFoodType) {
           case 0:
-            u8g.drawXBMP(gameIconXPos, 24, ghost_28x28_width, ghost_28x28_height, ghost_28x28_bits);
+            Sprites::drawSelfMasked(gameIconXPos, 24, ghost_28x28, 0);
             break;
           case 1:
-            u8g.drawXBMP(gameIconXPos, 24, bar_28x28_width, bar_28x28_height, bar_28x28_bits);
+            Sprites::drawSelfMasked(gameIconXPos, 24, bar_28x28, 0);
             break;
           case 2:
-            u8g.drawXBMP(gameIconXPos, 24, strawberry_28x28_width, strawberry_28x28_height, strawberry_28x28_bits);
+            Sprites::drawSelfMasked(gameIconXPos, 24, strawberry_28x28, 0);
             break;
           case 3:
-            u8g.drawXBMP(gameIconXPos, 24, apple_28x28_width, apple_28x28_height, apple_28x28_bits);
+            Sprites::drawSelfMasked(gameIconXPos, 24, apple_28x28, 0);
             break;
           case 4:
-            u8g.drawXBMP(gameIconXPos, 24, grape_28x28_width, grape_28x28_height, grape_28x28_bits);
+            Sprites::drawSelfMasked(gameIconXPos, 24, grape_28x28, 0);
             break;
           case 5:
-            u8g.drawXBMP(gameIconXPos, 24, milk_28x28_width, milk_28x28_height, milk_28x28_bits);
+            Sprites::drawSelfMasked(gameIconXPos, 24, milk_28x28, 0);
             break;
           case 6:
-            u8g.drawXBMP(gameIconXPos, 24, orange_28x28_width, orange_28x28_height, orange_28x28_bits);
+            Sprites::drawSelfMasked(gameIconXPos, 24, orange_28x28, 0);
             break;
         }
         gameCounter += 1;
@@ -952,42 +951,42 @@ void loop() {
         }
       } else if (gameSequence == 1) {
         // See the result
-        u8g.setFont(u8g_font_unifont);
+        // u8g.setFont(u8g_font_unifont);
         tinyfont.setCursor(0, 58);
         switch (gamePick) {
           case 0:
             // Ghost
-            u8g.drawXBMP(50, 12, ghost_28x28_width, ghost_28x28_height, ghost_28x28_bits);
+            Sprites::drawSelfMasked(50, 12, ghost_28x28, 0);
             tinyfont.print(" Nothing, boo!  ");
             break;
           case 1:
             // Bar
-            u8g.drawXBMP(50, 12, bar_28x28_width, bar_28x28_height, bar_28x28_bits);
+            Sprites::drawSelfMasked(50, 12, bar_28x28, 0);
             tinyfont.print("  + 1 of all!   ");
             break;
           case 2:
             // Strawberry
-            u8g.drawXBMP(50, 12, strawberry_28x28_width, strawberry_28x28_height, strawberry_28x28_bits);
+            Sprites::drawSelfMasked(50, 12, strawberry_28x28, 0);
             tinyfont.print(" + 1 strawberry ");
             break;
           case 3:
             // Apple
-            u8g.drawXBMP(50, 12, apple_28x28_width, apple_28x28_height, apple_28x28_bits);
+            Sprites::drawSelfMasked(50, 12, apple_28x28, 0);
             tinyfont.print("   + 1 apple    ");
             break;
           case 4:
             // Grape
-            u8g.drawXBMP(50, 12, grape_28x28_width, grape_28x28_height, grape_28x28_bits);
+            Sprites::drawSelfMasked(50, 12, grape_28x28, 0);
             tinyfont.print("   + 1 grape    ");
             break;
           case 5:
             // Milk
-            u8g.drawXBMP(50, 12, milk_28x28_width, milk_28x28_height, milk_28x28_bits);
+            Sprites::drawSelfMasked(50, 12, milk_28x28, 0);
             tinyfont.print("    + 1 milk    ");
             break;
           case 6:
             // Orange
-            u8g.drawXBMP(50, 12, orange_28x28_width, orange_28x28_height, orange_28x28_bits);
+            Sprites::drawSelfMasked(50, 12, orange_28x28, 0);
             tinyfont.print("   + 1 orange   ");
             break;
         }
@@ -1004,12 +1003,12 @@ void loop() {
       break;
     case 7:
       // Random visitor
-      u8g.setFont(u8g_font_baby);
+      // u8g.setFont(u8g_font_baby);
       switch (randomVisitSequence) {
         case 0:
           // Knock
           checkButton();
-          u8g.drawXBMP(50, 14, door_28x30_width, door_28x30_height, door_28x30_bits);
+          Sprites::drawSelfMasked(50, 14, door_28x30, 0);
           tinyfont.setCursor(40, 59);
           tinyfont.print("Knock knock!");
           randomVisitCounter += 1;
@@ -1020,8 +1019,8 @@ void loop() {
           break;
         case 1:
           // Hello
-          u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
-          u8g.drawXBMP(96, 14, cindy_28x26_width, cindy_28x26_height, cindy_28x26_bits);
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
+          Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
           tinyfont.setCursor(45, 59);
           tinyfont.print("Hi friend!");
           randomVisitCounter += 1;
@@ -1032,8 +1031,8 @@ void loop() {
           break;
         case 2:
           // Gift
-          u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
-          u8g.drawXBMP(96, 14, cindy_28x26_width, cindy_28x26_height, cindy_28x26_bits);
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
+          Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
           tinyfont.setCursor(45, 59);
           if (randomVisit<51) {
             // Matcha
@@ -1049,14 +1048,14 @@ void loop() {
           break;
         case 3:
           // Drink
-          u8g.drawXBMP(-24, 13, cat_sitting_upscaled4x_001_width, cat_sitting_upscaled4x_001_height, cat_sitting_upscaled4x_001_bits);
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           if (randomVisit<51) {
             // Matcha
-            u8g.drawXBMP(49, 14, matcha_30x32_width, matcha_30x32_height, matcha_30x32_bits);
+            Sprites::drawSelfMasked(49, 14, matcha_30x32, 0);
           } else {
-            u8g.drawXBMP(49, 14, coco_cake_28x32_width, coco_cake_28x32_height, coco_cake_28x32_bits);
+            Sprites::drawSelfMasked(49, 14, coco_cake_28x32, 0);
           }
-          u8g.drawXBMP(96, 14, cindy_28x26_width, cindy_28x26_height, cindy_28x26_bits);
+          Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
           tinyfont.setCursor(45, 59);
           tinyfont.print("Have some <3");
           randomVisitCounter += 1;
@@ -1067,12 +1066,12 @@ void loop() {
           break;
         case 4:
           // Bonus
-          u8g.setFont(u8g_font_unifont);
+          // u8g.setFont(u8g_font_unifont);
           if (randomVisit<51) {
             // Matcha
-            u8g.drawXBMP(49, 14, matcha_30x32_width, matcha_30x32_height, matcha_30x32_bits);
+            Sprites::drawSelfMasked(49, 14, matcha_30x32, 0);
           } else {
-            u8g.drawXBMP(49, 14, coco_cake_28x32_width, coco_cake_28x32_height, coco_cake_28x32_bits);
+            Sprites::drawSelfMasked(49, 14, coco_cake_28x32, 0);
           }
           tinyfont.setCursor(0, 59);
           tinyfont.print("      Yum!      ");
@@ -1090,7 +1089,7 @@ void loop() {
       break;
     case 99:
       // Show version
-      u8g.setFont(u8g_font_unifont);
+      // u8g.setFont(u8g_font_unifont);
       tinyfont.setCursor(0, 50);
       tinyfont.print(" TiMiNoo v1.2.8 ");
       versionCounter += 1;
@@ -1101,7 +1100,7 @@ void loop() {
   }
   if (gameMode < 2) {
     // Score
-    u8g.setFont(u8g_font_baby);
+    // u8g.setFont(u8g_font_baby);
     ltoa(score, scoreString, 10);
     tinyfont.setCursor(81, 60);
     tinyfont.print(scoreString);
