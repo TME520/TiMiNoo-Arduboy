@@ -64,14 +64,14 @@ long catEntertainment = random(1, 4);
 
 // Status change timing (decrement status variable every x frames)
 // Production timings
-unsigned long catHungerStep = random(5000, 8000);
+unsigned long catHungerStep = random(2000, 18000);
 // unsigned long catHungerStep = 1;
-unsigned long catHygieneStep = random(10000, 20000);
+unsigned long catHygieneStep = random(5000, 20000);
 // unsigned long catHygieneStep = 1;
-unsigned long catMoraleStep = random(4000, 5000);
-unsigned long catEducationStep = random(500, 1600);
+unsigned long catMoraleStep = random(1800, 5400);
+unsigned long catEducationStep = random(200, 6000);
 // unsigned long catEducationStep = 3;
-unsigned long catEntertainmentStep = random(400, 800);
+unsigned long catEntertainmentStep = random(1900, 19000);
 
 // Tracking status checks
 unsigned long lastCatHungerCheck = 0;
@@ -319,8 +319,11 @@ Tinyfont tinyfont = Tinyfont(arduboy.sBuffer, Arduboy2::width(), Arduboy2::heigh
 
 void setup() {
   arduboy.begin();
-  arduboy.setFrameRate(30);
+  arduboy.setFrameRate(4);
   arduboy.clear();
+  arduboy.setTextSize(1);
+  arduboy.setTextWrap(true);
+  arduboy.setTextColor(WHITE);
 }
 
 void checkButton()
@@ -593,7 +596,6 @@ void loop() {
       break;
     case 2:
       // Feed
-      // u8g.setFont(u8g_font_unifont);
       switch (feedSequence) {
         case 0:
           // Select food
@@ -624,35 +626,35 @@ void loop() {
           break;
         case 1:
           // Eat food
-          tinyfont.setCursor(0, 58);
+          arduboy.setCursor(0, 58);
           switch (selectedFood) {
             case 1:
               Sprites::drawSelfMasked(50, 14, strawberry_28x28, 0);
-              tinyfont.print("Yummy strawberry");
+              arduboy.print("Yummy strawberry");
               break;
             case 2:
               Sprites::drawSelfMasked(50, 14, grape_28x28, 0);
-              tinyfont.print("  Fresh grapes  ");
+              arduboy.print("  Fresh grapes  ");
               break;
             case 3:
               Sprites::drawSelfMasked(50, 14, milk_28x28, 0);
-              tinyfont.print("   Farm milk    ");
+              arduboy.print("   Farm milk    ");
               break;
             case 4:
               Sprites::drawSelfMasked(50, 14, orange_28x28, 0);
-              tinyfont.print("  Juicy orange  ");
+              arduboy.print("  Juicy orange  ");
               break;
             case 5:
               Sprites::drawSelfMasked(50, 14, apple_28x28, 0);
-              tinyfont.print("  Tasty apple   ");
+              arduboy.print("  Tasty apple   ");
               break;
             case 6:
               Sprites::drawSelfMasked(50, 14, ghost_28x28, 0);
-              tinyfont.print("    No food     ");
+              arduboy.print("    No food     ");
               break;
           }
           feedCounter += 1;
-          if (feedCounter>300) {
+          if (feedCounter>9) {
             feedCounter = 0;
             if (selectedFood != 6) {
               feedSequence = 2;
@@ -682,11 +684,11 @@ void loop() {
               break;
           }
           if (selectedFood != 6) {
-            tinyfont.setCursor(0, 59);
-            tinyfont.print("      Yum!      ");
+            arduboy.setCursor(0, 59);
+            arduboy.print("      Yum!      ");
           }
           feedCounter += 1;
-          if (feedCounter>250) {
+          if (feedCounter>9) {
             feedCounter = 0;
             if (selectedFood < 6) {
               superHappyCounter = 100;
@@ -702,20 +704,18 @@ void loop() {
       tinyfont.setCursor(70, 40);
       Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
       cuddleCounter += 1;
-      if (cuddleCounter<31) {
+      if (cuddleCounter<10) {
         Sprites::drawSelfMasked(80, 45 - cuddleCounter, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(92, 40 - cuddleCounter, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(104, 45 - cuddleCounter, cuddle_heart_11x10, 0);
-      } else if (cuddleCounter>30 && cuddleCounter < 161) {
+      } else if (cuddleCounter>9 && cuddleCounter < 19) {
         Sprites::drawSelfMasked(80, 15, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(92, 10, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(104, 15, cuddle_heart_11x10, 0);
-        // u8g.setFont(u8g_font_baby);
         tinyfont.print("I love you too");
-      } else if (cuddleCounter>160 && cuddleCounter < 240) {
-        // u8g.setFont(u8g_font_baby);
+      } else if (cuddleCounter>18 && cuddleCounter < 28) {
         tinyfont.print("I love you too");
-      } else if (cuddleCounter==240) {
+      } else if (cuddleCounter==28) {
         superHappyCounter = 100;
         score += 50;
         catMorale = 3;
@@ -734,20 +734,19 @@ void loop() {
             kokoXPos = 97;
           }
           snailCounter += 1;
-          if (snailCounter>100) {
+          if (snailCounter>9) {
             snailCounter = 0;
             lessonSequence = 1;
           }
           break;
         case 1:
           // Snail says hello
-          // u8g.setFont(u8g_font_unifont);
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(97, 40, koko_le_snail_26x22, 0);
-          tinyfont.setCursor(0, 58);
-          tinyfont.print("       Hi! >    ");
+          arduboy.setCursor(0, 58);
+          arduboy.print("       Hi! >    ");
           snailCounter += 1;
-          if (snailCounter>200) {
+          if (snailCounter>9) {
             snailCounter = 0;
             lessonSequence = 2;
           }
@@ -756,12 +755,11 @@ void loop() {
           // Introduction
           arduboy.drawLine(0, 8, 127, 8, WHITE);
           arduboy.drawLine(0, 56, 127, 56, WHITE);
-          // u8g.setFont(u8g_font_baby);
           Sprites::drawSelfMasked(97, 21, koko_le_snail_26x22, 0);
           tinyfont.setCursor(16, 18);
           tinyfont.print("Get ready for a\nnew lesson with...\n\n~ Koko Le Snail ~");
           snailCounter += 1;
-          if (snailCounter>300) {
+          if (snailCounter>9) {
             snailCounter = 0;
             lessonSequence = 3;
           }
@@ -770,7 +768,6 @@ void loop() {
           // Snail wisdom quote
           arduboy.drawLine(0, 8, 127, 8, WHITE);
           arduboy.drawLine(0, 56, 127, 56, WHITE);
-          // u8g.setFont(u8g_font_baby);
           Sprites::drawSelfMasked(97, 21, koko_le_snail_26x22, 0);
           tinyfont.setCursor(16, 18);
           switch (randomQuote) {
@@ -794,19 +791,18 @@ void loop() {
               break;
           }
           snailCounter += 1;
-          if (snailCounter>300) {
+          if (snailCounter>9) {
             snailCounter = 0;
             lessonSequence = 4;
           }
           break;
         case 4:
           // Score
-          // u8g.setFont(u8g_font_unifont);
           Sprites::drawSelfMasked(51, 12, study_26x28, 0);
-          tinyfont.setCursor(0, 58);
-          tinyfont.print("  + 1 Education ");
+          arduboy.setCursor(0, 58);
+          arduboy.print("  + 1 Education ");
           snailCounter += 1;
-          if (snailCounter>300) {
+          if (snailCounter>9) {
             snailCounter = 0;
             superHappyCounter = 100;
             score += 100;
@@ -878,11 +874,10 @@ void loop() {
           Sprites::drawSelfMasked(69, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(81, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(93, 50, cuddle_heart_11x10, 0);
-          // u8g.setFont(u8g_font_unifont);
-          tinyfont.setCursor(0, 16);
-          tinyfont.print("      All clean ");
+          arduboy.setCursor(0, 16);
+          arduboy.print("      All clean ");
           cleanCounter += 1;
-          if (cleanCounter>300) {
+          if (cleanCounter>9) {
             cleanCounter = 0;
             superHappyCounter = 100;
             score += 200;
@@ -898,7 +893,6 @@ void loop() {
         // Roll the dice
         checkButton();
         animationStepMax = 7;
-        // u8g.setFont(u8g_font_baby);
         tinyfont.setCursor(13, 6);
         tinyfont.print("xxxx Catsino Deluxe xxxx");
         Sprites::drawSelfMasked(3, 18, casino_frame_40x40, 0);
@@ -945,53 +939,52 @@ void loop() {
             break;
         }
         gameCounter += 1;
-        if (gameCounter>600) {
+        if (gameCounter>180) {
           gameCounter = 0;
           gameMode = 0;
         }
       } else if (gameSequence == 1) {
         // See the result
-        // u8g.setFont(u8g_font_unifont);
-        tinyfont.setCursor(0, 58);
+        arduboy.setCursor(0, 58);
         switch (gamePick) {
           case 0:
             // Ghost
             Sprites::drawSelfMasked(50, 12, ghost_28x28, 0);
-            tinyfont.print(" Nothing, boo!  ");
+            arduboy.print(" Nothing, boo!  ");
             break;
           case 1:
             // Bar
             Sprites::drawSelfMasked(50, 12, bar_28x28, 0);
-            tinyfont.print("  + 1 of all!   ");
+            arduboy.print("  + 1 of all!   ");
             break;
           case 2:
             // Strawberry
             Sprites::drawSelfMasked(50, 12, strawberry_28x28, 0);
-            tinyfont.print(" + 1 strawberry ");
+            arduboy.print(" + 1 strawberry ");
             break;
           case 3:
             // Apple
             Sprites::drawSelfMasked(50, 12, apple_28x28, 0);
-            tinyfont.print("   + 1 apple    ");
+            arduboy.print("   + 1 apple    ");
             break;
           case 4:
             // Grape
             Sprites::drawSelfMasked(50, 12, grape_28x28, 0);
-            tinyfont.print("   + 1 grape    ");
+            arduboy.print("   + 1 grape    ");
             break;
           case 5:
             // Milk
             Sprites::drawSelfMasked(50, 12, milk_28x28, 0);
-            tinyfont.print("    + 1 milk    ");
+            arduboy.print("    + 1 milk    ");
             break;
           case 6:
             // Orange
             Sprites::drawSelfMasked(50, 12, orange_28x28, 0);
-            tinyfont.print("   + 1 orange   ");
+            arduboy.print("   + 1 orange   ");
             break;
         }
         gameCounter += 1;
-        if (gameCounter>300) {
+        if (gameCounter>9) {
           gameCounter = 0;
           if (gamePick > 0) {
             superHappyCounter = 100;
@@ -1003,7 +996,6 @@ void loop() {
       break;
     case 7:
       // Random visitor
-      // u8g.setFont(u8g_font_baby);
       switch (randomVisitSequence) {
         case 0:
           // Knock
@@ -1012,7 +1004,7 @@ void loop() {
           tinyfont.setCursor(40, 59);
           tinyfont.print("Knock knock!");
           randomVisitCounter += 1;
-          if (randomVisitCounter>4000) {
+          if (randomVisitCounter>1800) {
             randomVisitSequence = 1;
             randomVisitCounter = 0;
           }
@@ -1024,7 +1016,7 @@ void loop() {
           tinyfont.setCursor(45, 59);
           tinyfont.print("Hi friend!");
           randomVisitCounter += 1;
-          if (randomVisitCounter>200) {
+          if (randomVisitCounter>9) {
             randomVisitSequence = 2;
             randomVisitCounter = 0;
           }
@@ -1041,7 +1033,7 @@ void loop() {
             tinyfont.print("I got coco cake!");
           }
           randomVisitCounter += 1;
-          if (randomVisitCounter>200) {
+          if (randomVisitCounter>9) {
             randomVisitSequence = 3;
             randomVisitCounter = 0;
           }
@@ -1059,24 +1051,23 @@ void loop() {
           tinyfont.setCursor(45, 59);
           tinyfont.print("Have some <3");
           randomVisitCounter += 1;
-          if (randomVisitCounter>200) {
+          if (randomVisitCounter>9) {
             randomVisitSequence = 4;
             randomVisitCounter = 0;
           }
           break;
         case 4:
           // Bonus
-          // u8g.setFont(u8g_font_unifont);
           if (randomVisit<51) {
             // Matcha
             Sprites::drawSelfMasked(49, 14, matcha_30x32, 0);
           } else {
             Sprites::drawSelfMasked(49, 14, coco_cake_28x32, 0);
           }
-          tinyfont.setCursor(0, 59);
-          tinyfont.print("      Yum!      ");
+          arduboy.setCursor(0, 59);
+          arduboy.print("      Yum!      ");
           randomVisitCounter += 1;
-          if (randomVisitCounter>200) {
+          if (randomVisitCounter>9) {
             randomVisitSequence = 0;
             randomVisitCounter = 0;
             superHappyCounter = 100;
@@ -1089,23 +1080,20 @@ void loop() {
       break;
     case 99:
       // Show version
-      // u8g.setFont(u8g_font_unifont);
-      tinyfont.setCursor(0, 50);
-      tinyfont.print(" TiMiNoo v1.2.8 ");
+      arduboy.setCursor(0, 50);
+      arduboy.print(" TiMiNoo v1.2.8 ");
       versionCounter += 1;
-      if (versionCounter>400) {
+      if (versionCounter>9) {
         gameMode = 0;
       }
       break;
   }
   if (gameMode < 2) {
     // Score
-    // u8g.setFont(u8g_font_baby);
     ltoa(score, scoreString, 10);
     tinyfont.setCursor(81, 60);
     tinyfont.print(scoreString);
   }
-  delay(10);
   
   arduboy.display();
 }
