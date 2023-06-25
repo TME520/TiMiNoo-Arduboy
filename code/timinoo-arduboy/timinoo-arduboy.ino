@@ -68,8 +68,8 @@ unsigned long catHungerStep = random(2000, 18000);
 // unsigned long catHungerStep = 1;
 unsigned long catHygieneStep = random(5000, 20000);
 // unsigned long catHygieneStep = 1;
-unsigned long catMoraleStep = random(1800, 5400);
-unsigned long catEducationStep = random(200, 6000);
+unsigned long catMoraleStep = random(200, 2000);
+unsigned long catEducationStep = random(100, 1000);
 // unsigned long catEducationStep = 3;
 unsigned long catEntertainmentStep = random(1900, 19000);
 
