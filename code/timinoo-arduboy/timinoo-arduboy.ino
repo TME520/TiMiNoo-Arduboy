@@ -320,6 +320,16 @@ Tinyfont tinyfont = Tinyfont(arduboy.sBuffer, Arduboy2::width(), Arduboy2::heigh
 void setup() {
   arduboy.begin();
   arduboy.setFrameRate(4);
+  /*
+  frameRate = 3 FPS
+  1 sec = 3
+  10 sec = 30
+  30 sec = 90
+  1 min = 180
+  10 min = 1800
+  30 min = 5400
+  1 h = 18000
+  */
   arduboy.clear();
   arduboy.setTextSize(1);
   arduboy.setTextWrap(true);
