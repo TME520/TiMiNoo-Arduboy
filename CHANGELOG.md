@@ -1,3 +1,6 @@
+# 2023-06-26
+- Added title screen
+
 # 2023-06-25
 - Adjusted text position
 - Adjusted actions timing
