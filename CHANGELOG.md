@@ -1,5 +1,6 @@
 # 2023-06-28
 - Fixed missed button presses issue
+- Adjusted text position
 
 # 2023-06-26
 - Added title screen

@@ -354,7 +354,7 @@ void setup() {
 
 void checkButton()
 {
-  if ( arduboy.justPressed(A_BUTTON) || arduboy.justPressed(B_BUTTON)) {
+  if ( arduboy.justPressed(A_BUTTON) || arduboy.justPressed(B_BUTTON) || arduboy.justReleased(A_BUTTON) || arduboy.justReleased(B_BUTTON) ) {
     if (gameMode == 1) {
       // Do something only if cat needs something
       switch (currentIcon) {
@@ -445,7 +445,6 @@ void checkButton()
       }
     }
   }
-  arduboy.pollButtons();
 }
 
 void loop() {
@@ -656,7 +655,7 @@ void loop() {
           break;
         case 1:
           // Eat food
-          arduboy.setCursor(0, 58);
+          arduboy.setCursor(0, 55);
           switch (selectedFood) {
             case 1:
               Sprites::drawSelfMasked(50, 14, strawberry_28x28, 0);
@@ -714,7 +713,7 @@ void loop() {
               break;
           }
           if (selectedFood != 6) {
-            arduboy.setCursor(0, 59);
+            arduboy.setCursor(0, 55);
             arduboy.print("      Yum!      ");
           }
           feedCounter += 1;
@@ -775,7 +774,7 @@ void loop() {
           // Snail says hello
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(97, 40, koko_le_snail_26x22, 0);
-          arduboy.setCursor(0, 58);
+          arduboy.setCursor(0, 55);
           arduboy.print("       Hi! >    ");
           snailCounter += 1;
           if (snailCounter>9) {
@@ -831,7 +830,7 @@ void loop() {
         case 4:
           // Score
           Sprites::drawSelfMasked(51, 12, study_26x28, 0);
-          arduboy.setCursor(0, 58);
+          arduboy.setCursor(0, 55);
           arduboy.print("  + 1 Education ");
           snailCounter += 1;
           if (snailCounter>9) {
@@ -933,10 +932,14 @@ void loop() {
         Sprites::drawSelfMasked(44, 18, casino_frame_40x40, 0);
         Sprites::drawSelfMasked(85, 18, casino_frame_40x40, 0);
         checkButton();
+        /*
         if ( (gameCounter % 3) == 0) {
           randomGameIconXPos = random(0, 3);
           randomFoodType = random(0, 7);
         }
+        */
+        randomGameIconXPos = random(0, 3);
+        randomFoodType = random(0, 7);
         switch (randomGameIconXPos) {
           case 0:
             gameIconXPos = 9;
@@ -979,7 +982,7 @@ void loop() {
         }
       } else if (gameSequence == 1) {
         // See the result
-        arduboy.setCursor(0, 58);
+        arduboy.setCursor(0, 55);
         switch (gamePick) {
           case 0:
             // Ghost
@@ -1099,7 +1102,7 @@ void loop() {
           } else {
             Sprites::drawSelfMasked(49, 14, coco_cake_28x32, 0);
           }
-          arduboy.setCursor(0, 59);
+          arduboy.setCursor(0, 55);
           arduboy.print("      Yum!      ");
           randomVisitCounter += 1;
           if (randomVisitCounter>9) {
