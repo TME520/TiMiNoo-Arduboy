@@ -64,14 +64,16 @@ long catEntertainment = random(1, 4);
 
 // Status change timing (decrement status variable every x frames)
 // Production timings
-unsigned long catHungerStep = random(2000, 18000);
-// unsigned long catHungerStep = 1;
-unsigned long catHygieneStep = random(5000, 20000);
-// unsigned long catHygieneStep = 1;
-unsigned long catMoraleStep = random(200, 2000);
-unsigned long catEducationStep = random(100, 1000);
-// unsigned long catEducationStep = 3;
-unsigned long catEntertainmentStep = random(1900, 19000);
+// unsigned long catHungerStep = random(2000, 18000);
+unsigned long catHungerStep = 1;
+// unsigned long catHygieneStep = random(5000, 20000);
+unsigned long catHygieneStep = 1;
+// unsigned long catMoraleStep = random(200, 2000);
+unsigned long catMoraleStep = 1;
+// unsigned long catEducationStep = random(100, 1000);
+unsigned long catEducationStep = 3;
+// unsigned long catEntertainmentStep = random(1900, 19000);
+unsigned long catEntertainmentStep = 1;
 
 // Tracking status checks
 unsigned long lastCatHungerCheck = 0;
@@ -352,7 +354,6 @@ void setup() {
 
 void checkButton()
 {
-  arduboy.pollButtons();
   if ( arduboy.justPressed(A_BUTTON) || arduboy.justPressed(B_BUTTON)) {
     if (gameMode == 1) {
       // Do something only if cat needs something
@@ -444,6 +445,7 @@ void checkButton()
       }
     }
   }
+  arduboy.pollButtons();
 }
 
 void loop() {
@@ -452,6 +454,7 @@ void loop() {
   }
 
   arduboy.clear();
+  arduboy.pollButtons();
   
   checkButton();
   frameCounter += 1;
@@ -540,6 +543,7 @@ void loop() {
   switch (gameMode) {
     case 0:
       // Idling
+      arduboy.pollButtons();
       animationStepMax = 4;
       checkButton();
       // Icon frame
@@ -572,6 +576,7 @@ void loop() {
       break;
     case 1:
       // Idle - looking left
+      arduboy.pollButtons();
       animationStepMax = 4;
       checkButton();
       // Icon frame
@@ -620,6 +625,7 @@ void loop() {
       break;
     case 2:
       // Feed
+      arduboy.pollButtons();
       switch (feedSequence) {
         case 0:
           // Select food
@@ -725,6 +731,7 @@ void loop() {
       break;
     case 3:
       // Cuddle
+      arduboy.pollButtons();
       tinyfont.setCursor(70, 40);
       Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
       cuddleCounter += 1;
@@ -748,6 +755,7 @@ void loop() {
       break;
     case 4:
       // Educate
+      arduboy.pollButtons();
       switch (lessonSequence) {
         case 0:
           // Snail arrives
@@ -838,6 +846,7 @@ void loop() {
       break;
     case 5:
       // Clean
+      arduboy.pollButtons();
       switch (cleanSequence) {
         case 0:
           // Clean The Cat game
@@ -913,6 +922,7 @@ void loop() {
       break;
     case 6:
       // Play
+      arduboy.pollButtons();
       if (gameSequence == 0) {
         // Roll the dice
         checkButton();
@@ -1020,6 +1030,7 @@ void loop() {
       break;
     case 7:
       // Random visitor
+      arduboy.pollButtons();
       switch (randomVisitSequence) {
         case 0:
           // Knock
@@ -1104,6 +1115,7 @@ void loop() {
       break;
     case 99:
       // Show version
+      arduboy.pollButtons();
       Sprites::drawSelfMasked(0, 0, timinoo_logo, 0);
       arduboy.setCursor(0, 57);
       arduboy.print("        v1.2.8 ");

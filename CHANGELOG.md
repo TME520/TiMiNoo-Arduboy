@@ -1,3 +1,6 @@
+# 2023-06-28
+- Fixed missed button presses issue
+
 # 2023-06-26
 - Added title screen
 
