@@ -65,11 +65,11 @@ long catEntertainment = random(1, 4);
 // Status change timing (decrement status variable every x frames)
 // Production timings
 // unsigned long catHungerStep = random(2000, 18000);
-unsigned long catHungerStep = 1;
+unsigned long catHungerStep = 10;
 // unsigned long catHygieneStep = random(5000, 20000);
-unsigned long catHygieneStep = 1;
+unsigned long catHygieneStep = 15;
 // unsigned long catMoraleStep = random(200, 2000);
-unsigned long catMoraleStep = 1;
+unsigned long catMoraleStep = 20;
 // unsigned long catEducationStep = random(100, 1000);
 unsigned long catEducationStep = 3;
 // unsigned long catEntertainmentStep = random(1900, 19000);
@@ -354,7 +354,7 @@ void setup() {
 
 void checkButton()
 {
-  if ( arduboy.justPressed(A_BUTTON) || arduboy.justPressed(B_BUTTON) || arduboy.justReleased(A_BUTTON) || arduboy.justReleased(B_BUTTON) ) {
+  if ( arduboy.justPressed(A_BUTTON) || arduboy.justPressed(B_BUTTON) ) {
     if (gameMode == 1) {
       // Do something only if cat needs something
       switch (currentIcon) {
@@ -539,10 +539,10 @@ void loop() {
     gameMode = 1;
   }
 
+  arduboy.pollButtons();
   switch (gameMode) {
     case 0:
       // Idling
-      arduboy.pollButtons();
       animationStepMax = 4;
       checkButton();
       // Icon frame
@@ -575,7 +575,6 @@ void loop() {
       break;
     case 1:
       // Idle - looking left
-      arduboy.pollButtons();
       animationStepMax = 4;
       checkButton();
       // Icon frame
@@ -624,7 +623,6 @@ void loop() {
       break;
     case 2:
       // Feed
-      arduboy.pollButtons();
       switch (feedSequence) {
         case 0:
           // Select food
@@ -730,7 +728,6 @@ void loop() {
       break;
     case 3:
       // Cuddle
-      arduboy.pollButtons();
       tinyfont.setCursor(70, 40);
       Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
       cuddleCounter += 1;
@@ -754,7 +751,6 @@ void loop() {
       break;
     case 4:
       // Educate
-      arduboy.pollButtons();
       switch (lessonSequence) {
         case 0:
           // Snail arrives
@@ -845,7 +841,6 @@ void loop() {
       break;
     case 5:
       // Clean
-      arduboy.pollButtons();
       switch (cleanSequence) {
         case 0:
           // Clean The Cat game
@@ -921,7 +916,6 @@ void loop() {
       break;
     case 6:
       // Play
-      arduboy.pollButtons();
       if (gameSequence == 0) {
         // Roll the dice
         checkButton();
@@ -938,8 +932,8 @@ void loop() {
           randomFoodType = random(0, 7);
         }
         */
-        randomGameIconXPos = random(0, 3);
-        randomFoodType = random(0, 7);
+        // randomGameIconXPos = random(0, 3);
+        /*
         switch (randomGameIconXPos) {
           case 0:
             gameIconXPos = 9;
@@ -951,29 +945,33 @@ void loop() {
             gameIconXPos = 91;
             break;
         }
+        */
         checkButton();
-        switch (randomFoodType) {
-          case 0:
-            Sprites::drawSelfMasked(gameIconXPos, 24, ghost_28x28, 0);
-            break;
-          case 1:
-            Sprites::drawSelfMasked(gameIconXPos, 24, bar_28x28, 0);
-            break;
-          case 2:
-            Sprites::drawSelfMasked(gameIconXPos, 24, strawberry_28x28, 0);
-            break;
-          case 3:
-            Sprites::drawSelfMasked(gameIconXPos, 24, apple_28x28, 0);
-            break;
-          case 4:
-            Sprites::drawSelfMasked(gameIconXPos, 24, grape_28x28, 0);
-            break;
-          case 5:
-            Sprites::drawSelfMasked(gameIconXPos, 24, milk_28x28, 0);
-            break;
-          case 6:
-            Sprites::drawSelfMasked(gameIconXPos, 24, orange_28x28, 0);
-            break;
+        for (gameIconXPos = 9; gameIconXPos < 92; gameIconXPos += 41) {
+          randomFoodType = random(0, 7);
+          switch (randomFoodType) {
+            case 0:
+              Sprites::drawSelfMasked(gameIconXPos, 24, ghost_28x28, 0);
+              break;
+            case 1:
+              Sprites::drawSelfMasked(gameIconXPos, 24, bar_28x28, 0);
+              break;
+            case 2:
+              Sprites::drawSelfMasked(gameIconXPos, 24, strawberry_28x28, 0);
+              break;
+            case 3:
+              Sprites::drawSelfMasked(gameIconXPos, 24, apple_28x28, 0);
+              break;
+            case 4:
+              Sprites::drawSelfMasked(gameIconXPos, 24, grape_28x28, 0);
+              break;
+            case 5:
+              Sprites::drawSelfMasked(gameIconXPos, 24, milk_28x28, 0);
+              break;
+            case 6:
+              Sprites::drawSelfMasked(gameIconXPos, 24, orange_28x28, 0);
+              break;
+          }
         }
         gameCounter += 1;
         if (gameCounter>180) {
@@ -1033,7 +1031,6 @@ void loop() {
       break;
     case 7:
       // Random visitor
-      arduboy.pollButtons();
       switch (randomVisitSequence) {
         case 0:
           // Knock
@@ -1118,7 +1115,6 @@ void loop() {
       break;
     case 99:
       // Show version
-      arduboy.pollButtons();
       Sprites::drawSelfMasked(0, 0, timinoo_logo, 0);
       arduboy.setCursor(0, 57);
       arduboy.print("        v1.2.8 ");

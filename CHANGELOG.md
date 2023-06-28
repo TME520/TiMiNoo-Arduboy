@@ -1,6 +1,7 @@
 # 2023-06-28
 - Fixed missed button presses issue
 - Adjusted text position
+- Adjusting Catsino game
 
 # 2023-06-26
 - Added title screen
