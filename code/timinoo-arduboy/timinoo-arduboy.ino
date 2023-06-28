@@ -739,9 +739,9 @@ void loop() {
         Sprites::drawSelfMasked(80, 15, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(92, 10, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(104, 15, cuddle_heart_11x10, 0);
-        tinyfont.print("I love you too");
+        tinyfont.print("I love you");
       } else if (cuddleCounter>18 && cuddleCounter < 28) {
-        tinyfont.print("I love you too");
+        tinyfont.print("I love you");
       } else if (cuddleCounter==28) {
         superHappyCounter = 100;
         score += 50;
