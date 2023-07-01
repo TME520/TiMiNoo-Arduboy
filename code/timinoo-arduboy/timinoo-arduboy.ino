@@ -335,17 +335,16 @@ Tinyfont tinyfont = Tinyfont(arduboy.sBuffer, Arduboy2::width(), Arduboy2::heigh
 
 void setup() {
   arduboy.begin();
-  // arduboy.setFrameRate(4);
   arduboy.setFrameRate(8);
   /*
-  frameRate = 3 FPS
-  1 sec = 3
-  10 sec = 30
-  30 sec = 90
-  1 min = 180
-  10 min = 1800
-  30 min = 5400
-  1 h = 18000
+  frameRate = 8 FPS
+  1 sec = 8
+  10 sec = 80
+  30 sec = 240
+  1 min = 480
+  10 min = 4800
+  30 min = 14400
+  1 h = 28800
   */
   arduboy.clear();
   arduboy.setTextSize(1);
@@ -658,27 +657,27 @@ void loop() {
           switch (selectedFood) {
             case 1:
               Sprites::drawSelfMasked(50, 14, strawberry_28x28, 0);
-              arduboy.print("Yummy strawberry");
+              arduboy.print("  Yummy  strawberry  ");
               break;
             case 2:
               Sprites::drawSelfMasked(50, 14, grape_28x28, 0);
-              arduboy.print("  Fresh grapes  ");
+              arduboy.print("    Fresh  grapes    ");
               break;
             case 3:
               Sprites::drawSelfMasked(50, 14, milk_28x28, 0);
-              arduboy.print("   Farm milk    ");
+              arduboy.print("     Farm  milk      ");
               break;
             case 4:
               Sprites::drawSelfMasked(50, 14, orange_28x28, 0);
-              arduboy.print("  Juicy orange  ");
+              arduboy.print("    Juicy  orange    ");
               break;
             case 5:
               Sprites::drawSelfMasked(50, 14, apple_28x28, 0);
-              arduboy.print("  Tasty apple   ");
+              arduboy.print("    Tasty  apple     ");
               break;
             case 6:
               Sprites::drawSelfMasked(50, 14, ghost_28x28, 0);
-              arduboy.print("    No food     ");
+              arduboy.print("      No  food       ");
               break;
           }
           feedCounter += 1;
@@ -713,7 +712,7 @@ void loop() {
           }
           if (selectedFood != 6) {
             arduboy.setCursor(0, 55);
-            arduboy.print("      Yum!      ");
+            arduboy.print("        Yum !        ");
           }
           feedCounter += 1;
           if (feedCounter>9) {
@@ -772,7 +771,7 @@ void loop() {
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(97, 40, koko_le_snail_26x22, 0);
           arduboy.setCursor(0, 55);
-          arduboy.print("       Hi! >    ");
+          arduboy.print("          Hi! >      ");
           snailCounter += 1;
           if (snailCounter>9) {
             snailCounter = 0;
@@ -828,7 +827,7 @@ void loop() {
           // Score
           Sprites::drawSelfMasked(51, 12, study_26x28, 0);
           arduboy.setCursor(0, 55);
-          arduboy.print("  + 1 Education ");
+          arduboy.print("    + 1  Education   ");
           snailCounter += 1;
           if (snailCounter>9) {
             snailCounter = 0;
@@ -903,7 +902,7 @@ void loop() {
           Sprites::drawSelfMasked(81, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(93, 50, cuddle_heart_11x10, 0);
           arduboy.setCursor(0, 16);
-          arduboy.print("      All clean ");
+          arduboy.print("       All clean     ");
           cleanCounter += 1;
           if (cleanCounter>9) {
             cleanCounter = 0;
@@ -921,7 +920,7 @@ void loop() {
         // Roll the dice
         checkButton();
         animationStepMax = 7;
-        tinyfont.setCursor(13, 6);
+        tinyfont.setCursor(5, 6);
         tinyfont.print("xxxx Catsino Deluxe xxxx");
         Sprites::drawSelfMasked(3, 18, casino_frame_40x40, 0);
         Sprites::drawSelfMasked(44, 18, casino_frame_40x40, 0);
@@ -986,37 +985,37 @@ void loop() {
           case 0:
             // Ghost
             Sprites::drawSelfMasked(50, 12, ghost_28x28, 0);
-            arduboy.print(" Nothing, boo!  ");
+            arduboy.print("   Nothing, boo !    ");
             break;
           case 1:
             // Bar
             Sprites::drawSelfMasked(50, 12, bar_28x28, 0);
-            arduboy.print("  + 1 of all!   ");
+            arduboy.print("     + 1 of all!     ");
             break;
           case 2:
             // Strawberry
             Sprites::drawSelfMasked(50, 12, strawberry_28x28, 0);
-            arduboy.print(" + 1 strawberry ");
+            arduboy.print("   + 1  strawberry   ");
             break;
           case 3:
             // Apple
             Sprites::drawSelfMasked(50, 12, apple_28x28, 0);
-            arduboy.print("   + 1 apple    ");
+            arduboy.print("     + 1  apple      ");
             break;
           case 4:
             // Grape
             Sprites::drawSelfMasked(50, 12, grape_28x28, 0);
-            arduboy.print("   + 1 grape    ");
+            arduboy.print("     + 1  grape      ");
             break;
           case 5:
             // Milk
             Sprites::drawSelfMasked(50, 12, milk_28x28, 0);
-            arduboy.print("    + 1 milk    ");
+            arduboy.print("      + 1  milk      ");
             break;
           case 6:
             // Orange
             Sprites::drawSelfMasked(50, 12, orange_28x28, 0);
-            arduboy.print("   + 1 orange   ");
+            arduboy.print("     + 1  orange     ");
             break;
         }
         gameCounter += 1;
@@ -1118,7 +1117,7 @@ void loop() {
       // Show version
       Sprites::drawSelfMasked(0, 0, timinoo_logo, 0);
       arduboy.setCursor(0, 57);
-      arduboy.print("        v1.2.8 ");
+      arduboy.print("        v1.2.8       ");
       versionCounter += 1;
       if (versionCounter>9) {
         gameMode = 0;

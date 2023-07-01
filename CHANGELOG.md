@@ -1,5 +1,6 @@
 # 2023-07-01
 - Set framerate to 8FPS in order to help with button press detection
+- Fixed text position for dialogs and Catsino banner
 
 # 2023-06-28
 - Fixed missed button presses issue
