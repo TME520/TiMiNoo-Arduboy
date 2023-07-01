@@ -692,6 +692,10 @@ void loop() {
           break;
         case 2:
           // Yum
+          if (selectedFood != 6) {
+            arduboy.setCursor(0, 55);
+            arduboy.print("        Yum !        ");
+          }
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           switch (selectedFood) {
             case 1:
@@ -709,10 +713,6 @@ void loop() {
             case 5:
               Sprites::drawSelfMasked(50, 14, apple_28x28, 0);
               break;
-          }
-          if (selectedFood != 6) {
-            arduboy.setCursor(0, 55);
-            arduboy.print("        Yum !        ");
           }
           feedCounter += 1;
           if (feedCounter>24) {
@@ -783,7 +783,7 @@ void loop() {
           arduboy.drawLine(0, 8, 127, 8, WHITE);
           arduboy.drawLine(0, 56, 127, 56, WHITE);
           Sprites::drawSelfMasked(97, 21, koko_le_snail_26x22, 0);
-          tinyfont.setCursor(16, 18);
+          tinyfont.setCursor(6, 18);
           tinyfont.print("Get ready for a\nnew lesson with...\n\n~ Koko Le Snail ~");
           snailCounter += 1;
           if (snailCounter>24) {
@@ -796,7 +796,7 @@ void loop() {
           arduboy.drawLine(0, 8, 127, 8, WHITE);
           arduboy.drawLine(0, 56, 127, 56, WHITE);
           Sprites::drawSelfMasked(97, 21, koko_le_snail_26x22, 0);
-          tinyfont.setCursor(16, 18);
+          tinyfont.setCursor(6, 18);
           switch (randomQuote) {
             case 1:
               tinyfont.print("Sometimes dogs\nare grey.\n\n  -- Koko");
@@ -897,12 +897,12 @@ void loop() {
           }
           break;
         case 1:
+          arduboy.setCursor(0, 16);
+          arduboy.print("       All clean     ");
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(69, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(81, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(93, 50, cuddle_heart_11x10, 0);
-          arduboy.setCursor(0, 16);
-          arduboy.print("       All clean     ");
           cleanCounter += 1;
           if (cleanCounter>24) {
             cleanCounter = 0;
@@ -1015,7 +1015,7 @@ void loop() {
           // Knock
           checkButton();
           Sprites::drawSelfMasked(50, 14, door_28x30, 0);
-          tinyfont.setCursor(40, 59);
+          tinyfont.setCursor(35, 59);
           tinyfont.print("Knock knock!");
           randomVisitCounter += 1;
           if (randomVisitCounter>4800) {
