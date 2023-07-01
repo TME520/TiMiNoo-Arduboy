@@ -1,3 +1,6 @@
+# 2023-07-01
+- Set framerate to 8FPS in order to help with button press detection
+
 # 2023-06-28
 - Fixed missed button presses issue
 - Adjusted text position

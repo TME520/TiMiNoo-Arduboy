@@ -335,7 +335,8 @@ Tinyfont tinyfont = Tinyfont(arduboy.sBuffer, Arduboy2::width(), Arduboy2::heigh
 
 void setup() {
   arduboy.begin();
-  arduboy.setFrameRate(4);
+  // arduboy.setFrameRate(4);
+  arduboy.setFrameRate(8);
   /*
   frameRate = 3 FPS
   1 sec = 3
@@ -543,7 +544,7 @@ void loop() {
   switch (gameMode) {
     case 0:
       // Idling
-      animationStepMax = 4;
+      animationStepMax = 8;
       checkButton();
       // Icon frame
       Sprites::drawSelfMasked(69, 1, speech_bubble_56x48, 0);
@@ -555,19 +556,19 @@ void loop() {
         superHappyCounter -= 1;
       }
       switch (animationStep) {
-        case 1:
+        case 1 ... 2:
           checkButton();
           Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
           break;
-        case 2:
+        case 3 ... 4:
           checkButton();
           Sprites::drawSelfMasked(8, 8, cat_sitting_002_48x48, 0);
           break;
-        case 3:
+        case 5 ... 6:
           checkButton();
           Sprites::drawSelfMasked(8, 8, cat_sitting_003_48x48, 0);
           break;
-        case 4:
+        case 7 ... 8:
           checkButton();
           Sprites::drawSelfMasked(8, 8, cat_sitting_004_48x48, 0);
           break;
@@ -575,7 +576,7 @@ void loop() {
       break;
     case 1:
       // Idle - looking left
-      animationStepMax = 4;
+      animationStepMax = 8;
       checkButton();
       // Icon frame
       Sprites::drawSelfMasked(69, 1, speech_bubble_56x48, 0);
@@ -603,19 +604,19 @@ void loop() {
           break;
       }
       switch (animationStep) {
-        case 1:
+        case 1 ... 2:
           checkButton();
           Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
           break;
-        case 2:
+        case 3 ... 4:
           checkButton();
           Sprites::drawSelfMasked(8, 8, cat_sitting_006_48x48, 0);
           break;
-        case 3:
+        case 5 ... 6:
           checkButton();
           Sprites::drawSelfMasked(8, 8, cat_sitting_007_48x48, 0);
           break;
-        case 4:
+        case 7 ... 8:
           checkButton();
           Sprites::drawSelfMasked(8, 8, cat_sitting_004_48x48, 0);
           break;
