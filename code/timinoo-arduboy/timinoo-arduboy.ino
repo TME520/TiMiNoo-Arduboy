@@ -681,7 +681,7 @@ void loop() {
               break;
           }
           feedCounter += 1;
-          if (feedCounter>9) {
+          if (feedCounter>24) {
             feedCounter = 0;
             if (selectedFood != 6) {
               feedSequence = 2;
@@ -715,7 +715,7 @@ void loop() {
             arduboy.print("        Yum !        ");
           }
           feedCounter += 1;
-          if (feedCounter>9) {
+          if (feedCounter>24) {
             feedCounter = 0;
             if (selectedFood < 6) {
               superHappyCounter = 100;
@@ -731,18 +731,18 @@ void loop() {
       tinyfont.setCursor(70, 40);
       Sprites::drawSelfMasked(8, 8, cat_sitting_001_48x48, 0);
       cuddleCounter += 1;
-      if (cuddleCounter<10) {
+      if (cuddleCounter<31) {
         Sprites::drawSelfMasked(80, 45 - cuddleCounter, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(92, 40 - cuddleCounter, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(104, 45 - cuddleCounter, cuddle_heart_11x10, 0);
-      } else if (cuddleCounter>9 && cuddleCounter < 19) {
+      } else if (cuddleCounter>30 && cuddleCounter < 85) {
         Sprites::drawSelfMasked(80, 15, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(92, 10, cuddle_heart_11x10, 0);
         Sprites::drawSelfMasked(104, 15, cuddle_heart_11x10, 0);
         tinyfont.print("I love you");
-      } else if (cuddleCounter>18 && cuddleCounter < 28) {
+      } else if (cuddleCounter>84 && cuddleCounter < 108) {
         tinyfont.print("I love you");
-      } else if (cuddleCounter==28) {
+      } else if (cuddleCounter==109) {
         superHappyCounter = 100;
         score += 50;
         catMorale = 3;
@@ -761,19 +761,19 @@ void loop() {
             kokoXPos = 97;
           }
           snailCounter += 1;
-          if (snailCounter>9) {
+          if (snailCounter>29) {
             snailCounter = 0;
             lessonSequence = 1;
           }
           break;
         case 1:
           // Snail says hello
-          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
-          Sprites::drawSelfMasked(97, 40, koko_le_snail_26x22, 0);
           arduboy.setCursor(0, 55);
           arduboy.print("          Hi! >      ");
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
+          Sprites::drawSelfMasked(97, 40, koko_le_snail_26x22, 0);
           snailCounter += 1;
-          if (snailCounter>9) {
+          if (snailCounter>24) {
             snailCounter = 0;
             lessonSequence = 2;
           }
@@ -786,7 +786,7 @@ void loop() {
           tinyfont.setCursor(16, 18);
           tinyfont.print("Get ready for a\nnew lesson with...\n\n~ Koko Le Snail ~");
           snailCounter += 1;
-          if (snailCounter>9) {
+          if (snailCounter>24) {
             snailCounter = 0;
             lessonSequence = 3;
           }
@@ -818,7 +818,7 @@ void loop() {
               break;
           }
           snailCounter += 1;
-          if (snailCounter>9) {
+          if (snailCounter>24) {
             snailCounter = 0;
             lessonSequence = 4;
           }
@@ -829,7 +829,7 @@ void loop() {
           arduboy.setCursor(0, 55);
           arduboy.print("    + 1  Education   ");
           snailCounter += 1;
-          if (snailCounter>9) {
+          if (snailCounter>24) {
             snailCounter = 0;
             superHappyCounter = 100;
             score += 100;
@@ -904,7 +904,7 @@ void loop() {
           arduboy.setCursor(0, 16);
           arduboy.print("       All clean     ");
           cleanCounter += 1;
-          if (cleanCounter>9) {
+          if (cleanCounter>24) {
             cleanCounter = 0;
             superHappyCounter = 100;
             score += 200;
@@ -925,27 +925,6 @@ void loop() {
         Sprites::drawSelfMasked(3, 18, casino_frame_40x40, 0);
         Sprites::drawSelfMasked(44, 18, casino_frame_40x40, 0);
         Sprites::drawSelfMasked(85, 18, casino_frame_40x40, 0);
-        checkButton();
-        /*
-        if ( (gameCounter % 3) == 0) {
-          randomGameIconXPos = random(0, 3);
-          randomFoodType = random(0, 7);
-        }
-        */
-        // randomGameIconXPos = random(0, 3);
-        /*
-        switch (randomGameIconXPos) {
-          case 0:
-            gameIconXPos = 9;
-            break;
-          case 1:
-            gameIconXPos = 50;
-            break;
-          case 2:
-            gameIconXPos = 91;
-            break;
-        }
-        */
         checkButton();
         for (gameIconXPos = 9; gameIconXPos < 92; gameIconXPos += 41) {
           randomFoodType = random(0, 7);
@@ -974,7 +953,7 @@ void loop() {
           }
         }
         gameCounter += 1;
-        if (gameCounter>180) {
+        if (gameCounter>800) {
           gameCounter = 0;
           gameMode = 0;
         }
@@ -1019,7 +998,7 @@ void loop() {
             break;
         }
         gameCounter += 1;
-        if (gameCounter>9) {
+        if (gameCounter>24) {
           gameCounter = 0;
           if (gamePick > 0) {
             superHappyCounter = 100;
@@ -1039,7 +1018,7 @@ void loop() {
           tinyfont.setCursor(40, 59);
           tinyfont.print("Knock knock!");
           randomVisitCounter += 1;
-          if (randomVisitCounter>1800) {
+          if (randomVisitCounter>4800) {
             randomVisitSequence = 1;
             randomVisitCounter = 0;
           }
@@ -1051,7 +1030,7 @@ void loop() {
           tinyfont.setCursor(45, 59);
           tinyfont.print("Hi friend!");
           randomVisitCounter += 1;
-          if (randomVisitCounter>9) {
+          if (randomVisitCounter>24) {
             randomVisitSequence = 2;
             randomVisitCounter = 0;
           }
@@ -1068,7 +1047,7 @@ void loop() {
             tinyfont.print("I got coco cake!");
           }
           randomVisitCounter += 1;
-          if (randomVisitCounter>9) {
+          if (randomVisitCounter>24) {
             randomVisitSequence = 3;
             randomVisitCounter = 0;
           }
@@ -1086,7 +1065,7 @@ void loop() {
           tinyfont.setCursor(45, 59);
           tinyfont.print("Have some <3");
           randomVisitCounter += 1;
-          if (randomVisitCounter>9) {
+          if (randomVisitCounter>24) {
             randomVisitSequence = 4;
             randomVisitCounter = 0;
           }
@@ -1100,9 +1079,9 @@ void loop() {
             Sprites::drawSelfMasked(49, 14, coco_cake_28x32, 0);
           }
           arduboy.setCursor(0, 55);
-          arduboy.print("      Yum!      ");
+          arduboy.print("        Yum !        ");
           randomVisitCounter += 1;
-          if (randomVisitCounter>9) {
+          if (randomVisitCounter>24) {
             randomVisitSequence = 0;
             randomVisitCounter = 0;
             superHappyCounter = 100;
@@ -1119,7 +1098,7 @@ void loop() {
       arduboy.setCursor(0, 57);
       arduboy.print("        v1.2.8       ");
       versionCounter += 1;
-      if (versionCounter>9) {
+      if (versionCounter>24) {
         gameMode = 0;
       }
       break;
