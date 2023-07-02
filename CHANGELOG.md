@@ -1,5 +1,7 @@
 # 2023-07-02
+- TiMiNoo version 1.2.9
 - Changed timings for cat needs
+- Catsino: Reduced chances of getting a ghost several times in a row
 
 # 2023-07-01
 - Set framerate to 8FPS in order to help with button press detection

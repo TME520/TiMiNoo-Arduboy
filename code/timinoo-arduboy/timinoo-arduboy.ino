@@ -400,8 +400,10 @@ void checkButton()
         gamePick = random (0, 7);
         switch (gamePick) {
           case 0:
-            if (score>666) {
+            if (score>666 && frameCounter % 2 == 0) {
               score -= 666;
+            } else {
+              gamePick = 1;
             }
             break;
           case 1:
@@ -1096,7 +1098,7 @@ void loop() {
       // Show version
       Sprites::drawSelfMasked(0, 0, timinoo_logo, 0);
       arduboy.setCursor(0, 57);
-      arduboy.print("        v1.2.8       ");
+      arduboy.print("        v1.2.9       ");
       versionCounter += 1;
       if (versionCounter>24) {
         gameMode = 0;
