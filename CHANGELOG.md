@@ -1,3 +1,7 @@
+# 2023-07-06
+- WIP: TiMiNoo-Arduboy version 1.2.10
+- New character: ChiChi
+
 # 2023-07-02
 - TiMiNoo version 1.2.9
 - Changed timings for cat needs
