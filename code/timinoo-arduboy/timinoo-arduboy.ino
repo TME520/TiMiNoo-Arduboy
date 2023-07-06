@@ -361,7 +361,17 @@ void setup() {
 void checkButton()
 {
   if ( arduboy.justPressed(A_BUTTON) || arduboy.justPressed(B_BUTTON) ) {
-    if (gameMode == 1) {
+    if (gameMode == 0) {
+      if ( arduboy.justPressed(A_BUTTON) ) {
+        // Game: Lucky Card
+        gameMode = 8;
+        gameCounter = 0;
+      } else if ( arduboy.justPressed(B_BUTTON) ) {
+        // Game: Shoot The Ghost
+        gameMode = 9;
+        gameCounter = 0;
+      }
+    } else if (gameMode == 1) {
       // Do something only if cat needs something
       switch (currentIcon) {
         case 2:
@@ -1102,11 +1112,33 @@ void loop() {
           break;
       }
       break;
+    case 8:
+      // Game: Lucky Card
+      Sprites::drawSelfMasked(96, 14, chichi_15x14, 0);
+      tinyfont.setCursor(10, 59);
+      tinyfont.print("Game: Lucky Card");
+      gameCounter += 1;
+      if (gameCounter>24) {
+        gameCounter = 0;
+        gameMode = 0;
+      }
+      break;
+    case 9:
+      // Game: Shoot The Ghost
+      Sprites::drawSelfMasked(96, 14, chichi_15x14, 0);
+      tinyfont.setCursor(10, 59);
+      tinyfont.print("Game: Shoot The Ghost");
+      gameCounter += 1;
+      if (gameCounter>24) {
+        gameCounter = 0;
+        gameMode = 0;
+      }
+      break;
     case 99:
       // Show version
       Sprites::drawSelfMasked(0, 0, timinoo_logo, 0);
       arduboy.setCursor(0, 57);
-      arduboy.print("        v1.2.9       ");
+      arduboy.print("        v1.2.10      ");
       versionCounter += 1;
       if (versionCounter>24) {
         gameMode = 0;

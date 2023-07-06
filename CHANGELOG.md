@@ -1,6 +1,7 @@
 # 2023-07-06
 - WIP: TiMiNoo-Arduboy version 1.2.10
 - New character: ChiChi
+- 2 new games: Lucky Card and Shoot The Ghost
 
 # 2023-07-02
 - TiMiNoo version 1.2.9
