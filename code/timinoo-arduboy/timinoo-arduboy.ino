@@ -52,6 +52,7 @@ long randomGameIconXPos = 0;
 long randomFoodType = 0;
 int gameIconXPos = 0;
 int versionCounter = 0;
+int kisscussCounter = 0;
 
 // Cat status variables
 // Status metrics
@@ -1184,25 +1185,30 @@ void loop() {
         // Display random character (Koko, Cindy, ChiChi or Ghost)
         checkButton();
         arduboy.setCursor(0, 10);
-        arduboy.print("     Kiss ~ Cuss     ");
+        arduboy.print("[B]  Kiss ~ Cuss  [A]");
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         checkButton();
         if ( frameCounter % 6 == 0 ) {
           randomFoodType = random(0, 4);
+          randomGameIconXPos = random(20, 80);
         }
         switch (randomFoodType) {
           case 0:
-            Sprites::drawSelfMasked(51, 28, koko_le_snail_26x22, 0);
+            // Sprites::drawSelfMasked(51, 28, koko_le_snail_26x22, 0);
+            Sprites::drawSelfMasked(randomGameIconXPos, 28, koko_le_snail_26x22, 0);
             break;
           case 1:
-            Sprites::drawSelfMasked(50, 28, cindy_28x26, 0);
+            // Sprites::drawSelfMasked(50, 28, cindy_28x26, 0);
+            Sprites::drawSelfMasked(randomGameIconXPos, 28, cindy_28x26, 0);
             break;
           case 2:
-            Sprites::drawSelfMasked(49, 28, chichi_30x28, 0);
+            // Sprites::drawSelfMasked(49, 28, chichi_30x28, 0);
+            Sprites::drawSelfMasked(randomGameIconXPos, 28, chichi_30x28, 0);
             break;
           case 3:
-            Sprites::drawSelfMasked(50, 28, ghost_28x28, 0);
+            // Sprites::drawSelfMasked(50, 28, ghost_28x28, 0);
+            Sprites::drawSelfMasked(randomGameIconXPos, 28, ghost_28x28, 0);
             break;
         }
         gameCounter += 1;
@@ -1210,29 +1216,43 @@ void loop() {
           gameCounter = 0;
           gameMode = 0;
         }
+        if (kisscussCounter > 10) {
+          gameSequence = 3;
+          gameCounter = 0;
+        }
       } else if (gameSequence == 1) {
         // Unhappy
+        Sprites::drawSelfMasked(51, 28, cuss_28x28, 0);
         gameCounter += 1;
         if (gameCounter>24) {
           gameCounter = 0;
           gameSequence = 0;
+          kisscussCounter += 1;
         }
       } else if (gameSequence == 2) {
         // Happy
+        Sprites::drawSelfMasked(51, 28, kiss_28x28, 0);
+        arduboy.setCursor(0, 10);
+        arduboy.print("    + 1000 points    ");
+        arduboy.drawFastHLine(0, 8, 127, WHITE);
+        arduboy.drawFastHLine(0, 18, 127, WHITE);
         gameCounter += 1;
         if (gameCounter>24) {
+          score += 1000;
           gameCounter = 0;
           gameSequence = 0;
+          kisscussCounter += 1;
         }
       } else if (gameSequence == 3) {
+        arduboy.setCursor(0, 10);+
+        arduboy.print(" Thanks for playing! ");
+        arduboy.drawFastHLine(0, 8, 127, WHITE);
+        arduboy.drawFastHLine(0, 18, 127, WHITE);
         gameCounter += 1;
         if (gameCounter>24) {
           gameCounter = 0;
-          if (gamePick > 0) {
-            superHappyCounter = 100;
-            catEntertainment = 3;
-          }
           gameMode = 0;
+          kisscussCounter = 0;
         }
       }
       break;
