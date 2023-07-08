@@ -1,3 +1,6 @@
+# 2023-07-08
+- WIP: Kiss Cuss mini game (ex-Shoot The Ghost)
+
 # 2023-07-06
 - WIP: TiMiNoo-Arduboy version 1.2.10
 - New character: ChiChi
