@@ -767,8 +767,10 @@ void loop() {
         case 2:
           // Yum
           if (selectedFood != 6) {
-            arduboy.setCursor(0, 55);
+            arduboy.setCursor(0, 10);
             arduboy.print("        Yum !        ");
+            arduboy.drawFastHLine(0, 8, 127, WHITE);
+            arduboy.drawFastHLine(0, 18, 127, WHITE);
           }
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           switch (selectedFood) {
@@ -843,7 +845,7 @@ void loop() {
         case 1:
           // Snail says hello
           arduboy.setCursor(0, 55);
-          arduboy.print("          Hi! >      ");
+          arduboy.print("           Hi! >     ");
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(97, 40, koko_le_snail_26x22, 0);
           snailCounter += 1;
@@ -854,9 +856,7 @@ void loop() {
           break;
         case 2:
           // Introduction
-          // arduboy.drawLine(0, 8, 127, 8, WHITE);
           arduboy.drawFastHLine(0, 8, 127, WHITE);
-          // arduboy.drawLine(0, 56, 127, 56, WHITE);
           arduboy.drawFastHLine(0, 56, 127, WHITE);
           Sprites::drawSelfMasked(97, 21, koko_le_snail_26x22, 0);
           tinyfont.setCursor(6, 18);
@@ -922,6 +922,11 @@ void loop() {
           // Clean The Cat game
           Sprites::drawSelfMasked(38, 8, cat_sitting_001_48x48, 0);
           checkButton();
+          arduboy.setCursor(0, 10);
+          arduboy.print("  Clean The Cat   [A]");
+          arduboy.drawFastHLine(0, 8, 127, WHITE);
+          arduboy.drawFastHLine(0, 18, 127, WHITE);
+          checkButton();
           cleanCounter -= 1;
           if (cleanCounter<0) {
             cleanCounter = 0;
@@ -973,8 +978,10 @@ void loop() {
           }
           break;
         case 1:
-          arduboy.setCursor(0, 16);
-          arduboy.print("       All clean     ");
+          arduboy.setCursor(0, 10);
+          arduboy.print("   All clean yay !   ");
+          arduboy.drawFastHLine(0, 8, 127, WHITE);
+          arduboy.drawFastHLine(0, 18, 127, WHITE);
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(69, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(81, 50, cuddle_heart_11x10, 0);
@@ -1183,6 +1190,10 @@ void loop() {
       // Game: Kiss Cuss
       if (gameSequence == 0) {
         // Display random character (Koko, Cindy, ChiChi or Ghost)
+        if (kisscussCounter > 10) {
+          gameSequence = 3;
+          gameCounter = 0;
+        }
         checkButton();
         arduboy.setCursor(0, 10);
         arduboy.print("[B]  Kiss ~ Cuss  [A]");
@@ -1195,19 +1206,15 @@ void loop() {
         }
         switch (randomFoodType) {
           case 0:
-            // Sprites::drawSelfMasked(51, 28, koko_le_snail_26x22, 0);
             Sprites::drawSelfMasked(randomGameIconXPos, 28, koko_le_snail_26x22, 0);
             break;
           case 1:
-            // Sprites::drawSelfMasked(50, 28, cindy_28x26, 0);
             Sprites::drawSelfMasked(randomGameIconXPos, 28, cindy_28x26, 0);
             break;
           case 2:
-            // Sprites::drawSelfMasked(49, 28, chichi_30x28, 0);
             Sprites::drawSelfMasked(randomGameIconXPos, 28, chichi_30x28, 0);
             break;
           case 3:
-            // Sprites::drawSelfMasked(50, 28, ghost_28x28, 0);
             Sprites::drawSelfMasked(randomGameIconXPos, 28, ghost_28x28, 0);
             break;
         }
@@ -1215,10 +1222,6 @@ void loop() {
         if (gameCounter>800) {
           gameCounter = 0;
           gameMode = 0;
-        }
-        if (kisscussCounter > 10) {
-          gameSequence = 3;
-          gameCounter = 0;
         }
       } else if (gameSequence == 1) {
         // Unhappy
@@ -1228,6 +1231,7 @@ void loop() {
           gameCounter = 0;
           gameSequence = 0;
           kisscussCounter += 1;
+          randomFoodType = random(0, 4);
         }
       } else if (gameSequence == 2) {
         // Happy
@@ -1242,6 +1246,7 @@ void loop() {
           gameCounter = 0;
           gameSequence = 0;
           kisscussCounter += 1;
+          randomFoodType = random(0, 4);
         }
       } else if (gameSequence == 3) {
         arduboy.setCursor(0, 10);+
@@ -1255,6 +1260,9 @@ void loop() {
           kisscussCounter = 0;
         }
       }
+      break;
+    case 10:
+      // ChiChi visit
       break;
     case 99:
       // Show version
