@@ -20,16 +20,19 @@ TiMiNoo is a simple yet feature-rich virtual cat, a companion for busy days: Cud
 Tamagotchi lovers could compare it to a Nano.
 
 ## Features
-### Single button gameplay
-I love having a virtual pet on my desk at work, but I also need to preserve my workflow from distractions.
-A single button gameplay is perfect for that.
-### 2 mini games
+### 3 mini games
 #### Catsino ![bar](./assets/icons/bar.png "BAR +1 of all !!!")
 Go to the casino with your TiMiNoo and do your best to win some yummy food to bring home.
-Press the button once to randomly pick a food item. Beware of the ghost though !
+Press A or B once to randomly pick a food item. Beware of the ghost though !
 #### Cat Wash
 When the fur of your TiMiNoo gets dirty, it's time for a proper toilet. Scrub scrub !
-Repeatedly press the button to get a squicky clean kitty.
+Repeatedly press A or B to get a squicky clean kitty.
+#### Kiss Cuss
+Give your friends a kiss and cuss at the ghost.
+When a friend appears on screen, press B to give a kiss and share the love.
+When a naughty ghost appears on screen, press A to cuss at it and make it go away.
+Be careful, cussing at your friends or kissing the ghost will cause you not to score points.
+Every properly places kiss / cuss will get you a sweet 1000 points bonus, so get ready and get up there.
 ### 7 food items
 Your TiMiNoo will get hungry as time goes by. Feed it a variety of food including:
 - ![grape](./assets/icons/grape.png "Fresh grapes") Grape

@@ -32,11 +32,10 @@ int gameCounter = 0;
 int gameSequence = 0;
 long gamePick = 0;
 int strawberryFoodStock = 0;
-int appleFoodStock = 10000;
-int iceCreamFoodStock = 1;
+int appleFoodStock = 2;
 int grapeFoodStock = 0;
 int milkFoodStock = 0;
-int orangeFoodStock = 0;
+int orangeFoodStock = 1;
 int lessonSequence = 0;
 int snailCounter = 0;
 int kokoXPos = 0;
@@ -337,18 +336,6 @@ const uint8_t PROGMEM chichi_30x28[] = {
 0x03, 0x03, 0x00, 0x00, 0xff, 0xff, 0xff, 0xff, 0x3f, 0x3f, 0xcf, 0xcf, 0xf3, 0xf3, 0xf3, 0xf3, 0xcf, 0xcf, 0xcf, 0xcf, 0x3f, 0x3f, 0x3f, 0x3f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
 0x00, 0x00, 0x00, 0x00, 0x3c, 0x3c, 0xfc, 0xfc, 0xc0, 0xc0, 0xff, 0xff, 0xff, 0xff, 0xc3, 0xc3, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc3, 0xc3, 0xfc, 0xfc, 0xfc, 0xfc, 0xc0, 0xc0, 
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x03, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0c, 0x0c, 0x0c, 0x0c, 0x0f, 0x0f, 0x0f, 0x0f, 0x03, 0x03, 
-};
-
-const uint8_t PROGMEM cuss_14x14[] = {
-14, 14,
-0xf8, 0xfc, 0xde, 0x0f, 0xe7, 0xf7, 0xff, 0xff, 0xf7, 0xe7, 0x0f, 0xde, 0xfc, 0xf8, 
-0x07, 0x0f, 0x1f, 0x00, 0x3f, 0x31, 0x38, 0x38, 0x31, 0x3f, 0x00, 0x1f, 0x0f, 0x07, 
-};
-
-const uint8_t PROGMEM kiss_14x14[] = {
-14, 14,
-0xf8, 0xfc, 0xfe, 0xff, 0xc7, 0xff, 0xff, 0xff, 0xff, 0xc7, 0xff, 0xfe, 0xfc, 0xf8, 
-0x07, 0x0f, 0x1c, 0x38, 0x32, 0x32, 0x32, 0x32, 0x32, 0x32, 0x38, 0x1c, 0x0f, 0x07, 
 };
 
 const uint8_t PROGMEM cuss_28x28[] = {
@@ -727,30 +714,32 @@ void loop() {
           break;
         case 1:
           // Eat food
-          arduboy.setCursor(0, 55);
+          arduboy.setCursor(0, 10);
+          arduboy.drawFastHLine(0, 8, 127, WHITE);
+          arduboy.drawFastHLine(0, 18, 127, WHITE);
           switch (selectedFood) {
             case 1:
-              Sprites::drawSelfMasked(50, 14, strawberry_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, strawberry_28x28, 0);
               arduboy.print("  Yummy  strawberry  ");
               break;
             case 2:
-              Sprites::drawSelfMasked(50, 14, grape_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, grape_28x28, 0);
               arduboy.print("    Fresh  grapes    ");
               break;
             case 3:
-              Sprites::drawSelfMasked(50, 14, milk_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, milk_28x28, 0);
               arduboy.print("     Farm  milk      ");
               break;
             case 4:
-              Sprites::drawSelfMasked(50, 14, orange_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, orange_28x28, 0);
               arduboy.print("    Juicy  orange    ");
               break;
             case 5:
-              Sprites::drawSelfMasked(50, 14, apple_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, apple_28x28, 0);
               arduboy.print("    Tasty  apple     ");
               break;
             case 6:
-              Sprites::drawSelfMasked(50, 14, ghost_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, ghost_28x28, 0);
               arduboy.print("      No  food       ");
               break;
           }
@@ -775,19 +764,19 @@ void loop() {
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           switch (selectedFood) {
             case 1:
-              Sprites::drawSelfMasked(50, 14, strawberry_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, strawberry_28x28, 0);
               break;
             case 2:
-              Sprites::drawSelfMasked(50, 14, grape_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, grape_28x28, 0);
               break;
             case 3:
-              Sprites::drawSelfMasked(50, 14, milk_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, milk_28x28, 0);
               break;
             case 4:
-              Sprites::drawSelfMasked(50, 14, orange_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, orange_28x28, 0);
               break;
             case 5:
-              Sprites::drawSelfMasked(50, 14, apple_28x28, 0);
+              Sprites::drawSelfMasked(50, 28, apple_28x28, 0);
               break;
           }
           feedCounter += 1;
@@ -901,9 +890,11 @@ void loop() {
           break;
         case 4:
           // Score
-          Sprites::drawSelfMasked(51, 12, study_26x28, 0);
-          arduboy.setCursor(0, 55);
+          Sprites::drawSelfMasked(51, 28, study_26x28, 0);
+          arduboy.setCursor(0, 10);
           arduboy.print("    + 1  Education   ");
+          arduboy.drawFastHLine(0, 8, 127, WHITE);
+          arduboy.drawFastHLine(0, 18, 127, WHITE);
           snailCounter += 1;
           if (snailCounter>24) {
             snailCounter = 0;
@@ -1042,41 +1033,43 @@ void loop() {
         }
       } else if (gameSequence == 1) {
         // See the result
-        arduboy.setCursor(0, 55);
+        arduboy.setCursor(0, 10);
+        arduboy.drawFastHLine(0, 8, 127, WHITE);
+        arduboy.drawFastHLine(0, 18, 127, WHITE);
         switch (gamePick) {
           case 0:
             // Ghost
-            Sprites::drawSelfMasked(50, 12, ghost_28x28, 0);
+            Sprites::drawSelfMasked(50, 28, ghost_28x28, 0);
             arduboy.print("   Nothing, boo !    ");
             break;
           case 1:
             // Bar
-            Sprites::drawSelfMasked(50, 12, bar_28x28, 0);
+            Sprites::drawSelfMasked(50, 28, bar_28x28, 0);
             arduboy.print("     + 1 of all!     ");
             break;
           case 2:
             // Strawberry
-            Sprites::drawSelfMasked(50, 12, strawberry_28x28, 0);
+            Sprites::drawSelfMasked(50, 28, strawberry_28x28, 0);
             arduboy.print("   + 1  strawberry   ");
             break;
           case 3:
             // Apple
-            Sprites::drawSelfMasked(50, 12, apple_28x28, 0);
+            Sprites::drawSelfMasked(50, 28, apple_28x28, 0);
             arduboy.print("     + 1  apple      ");
             break;
           case 4:
             // Grape
-            Sprites::drawSelfMasked(50, 12, grape_28x28, 0);
+            Sprites::drawSelfMasked(50, 28, grape_28x28, 0);
             arduboy.print("     + 1  grape      ");
             break;
           case 5:
             // Milk
-            Sprites::drawSelfMasked(50, 12, milk_28x28, 0);
+            Sprites::drawSelfMasked(50, 28, milk_28x28, 0);
             arduboy.print("      + 1  milk      ");
             break;
           case 6:
             // Orange
-            Sprites::drawSelfMasked(50, 12, orange_28x28, 0);
+            Sprites::drawSelfMasked(50, 28, orange_28x28, 0);
             arduboy.print("     + 1  orange     ");
             break;
         }
@@ -1157,12 +1150,14 @@ void loop() {
           // Bonus
           if (randomVisit<51) {
             // Matcha
-            Sprites::drawSelfMasked(49, 14, matcha_30x32, 0);
+            Sprites::drawSelfMasked(49, 28, matcha_30x32, 0);
           } else {
-            Sprites::drawSelfMasked(49, 14, coco_cake_28x32, 0);
+            Sprites::drawSelfMasked(50, 28, coco_cake_28x32, 0);
           }
-          arduboy.setCursor(0, 55);
+          arduboy.setCursor(0, 10);
           arduboy.print("        Yum !        ");
+          arduboy.drawFastHLine(0, 8, 127, WHITE);
+          arduboy.drawFastHLine(0, 18, 127, WHITE);
           randomVisitCounter += 1;
           if (randomVisitCounter>24) {
             randomVisitSequence = 0;
@@ -1177,7 +1172,6 @@ void loop() {
       break;
     case 8:
       // Game: Lucky Card
-      // Sprites::drawSelfMasked(96, 14, chichi_15x14, 0);
       tinyfont.setCursor(10, 59);
       tinyfont.print("Game: Lucky Card");
       gameCounter += 1;
@@ -1249,7 +1243,7 @@ void loop() {
           randomFoodType = random(0, 4);
         }
       } else if (gameSequence == 3) {
-        arduboy.setCursor(0, 10);+
+        arduboy.setCursor(0, 10);
         arduboy.print(" Thanks for playing! ");
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
@@ -1258,6 +1252,7 @@ void loop() {
           gameCounter = 0;
           gameMode = 0;
           kisscussCounter = 0;
+          superHappyCounter = 100;
         }
       }
       break;
