@@ -1,7 +1,7 @@
 # TiMiNoo Arduboy
 Cute 1 bit VPet for Arduboy - Feed, cuddle, clean and educate your own unique cat.
 
-2 mini games, 7 food types, friends visits and presents, one button action, no sound, no death.
+3 mini games, 7 food types, friends visits and presents, all on the mighty Arduboy.
 
 ![TiMiNoo logo](./assets/logo/2.png "TiMiNoo logo")
 
