@@ -465,6 +465,7 @@ void checkButton()
         generalCounter = 0;
       }
     } else if (gameMode == 9 && currentSequence == 0) {
+      generalCounter = 0;
       if ( arduboy.justPressed(A_BUTTON) ) {
         // Button A: Cuss
         if (randomFoodType<3) {
@@ -797,7 +798,7 @@ void loop() {
         tinyfont.print("I love you");
       } else if (generalCounter>84 && generalCounter < 108) {
         tinyfont.print("I love you");
-      } else if (generalCounter==109) {
+      } else if (generalCounter>=109) {
         superHappyCounter = 100;
         score += 50;
         catMorale = 3;
