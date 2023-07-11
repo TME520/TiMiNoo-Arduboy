@@ -1,5 +1,7 @@
 # 2023-07-11
 - Adjusted timing to favor action over idleness
+- Fixed Cuddle sequence getting stuck
+- Fixed Score screen for Kiss Cuss
 
 # 2023-07-08
 - WIP: Kiss Cuss mini game (ex-Shoot The Ghost)

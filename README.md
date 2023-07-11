@@ -5,8 +5,8 @@ Cute 1 bit VPet for Arduboy - Feed, cuddle, clean and educate your own unique ca
 
 ![TiMiNoo logo](./assets/logo/2.png "TiMiNoo logo")
 
-## Current version: 1.2.9
-## WIP version: 1.2.10
+## Current version: 1.2.10
+## WIP version: n/a
 
 ## Presentation
 
@@ -32,15 +32,16 @@ Tamagotchi lovers could compare it to a Nano.
 #### Catsino ![bar](./assets/icons/bar.png "BAR +1 of all !!!")
 Go to the casino with your TiMiNoo and do your best to win some yummy food to bring home.
 Press A or B once to randomly pick a food item. Beware of the ghost though !
-#### Cat Wash
+#### Cat Wash ![soap](./assets/icons/bubbles.png "Soap bubbles yay !!!")
 When the fur of your TiMiNoo gets dirty, it's time for a proper toilet. Scrub scrub !
 Repeatedly press A or B to get a squicky clean kitty.
-#### Kiss Cuss
+#### Kiss Cuss ![kiss](./assets/icons/kiss.png "Kiss your friends") / ![cuss](./assets/icons/cuss.png "Cuss at the naughty ghost")
 Give your friends a kiss and cuss at the ghost.
 When a friend appears on screen, press B to give a kiss and share the love.
 When a naughty ghost appears on screen, press A to cuss at it and make it go away.
 Be careful, cussing at your friends or kissing the ghost will cause you not to score points.
 Every properly places kiss / cuss will get you a sweet 1000 points bonus, so get ready and get up there.
+That game goes on for 10 rounds.
 ### 7 food items
 Your TiMiNoo will get hungry as time goes by. Feed it a variety of food including:
 - ![grape](./assets/icons/grape.png "Fresh grapes") Grape
