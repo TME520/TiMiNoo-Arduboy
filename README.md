@@ -5,10 +5,18 @@ Cute 1 bit VPet for Arduboy - Feed, cuddle, clean and educate your own unique ca
 
 ![TiMiNoo logo](./assets/logo/2.png "TiMiNoo logo")
 
-## Current version: 1.2.9
+## Current version: 1.2.10
 ## WIP version: n/a
 
 ## Presentation
+
+> **Game type**: Virtual Pet
+>
+> **Game Style**: Casual Game, mild action
+>
+> **Players**: One
+>
+> **Age range**: 7 to 77 years old
 
 TiMiNoo ("Tee Me Noo") is a virtual cat providing minimal distraction, fully office-compatible, single button action, no sound, no death.
 The cat is different on each run, its characteristics (appetite, cleanliness, cleverness, playfulness) are randomly picked at startup.
@@ -20,16 +28,20 @@ TiMiNoo is a simple yet feature-rich virtual cat, a companion for busy days: Cud
 Tamagotchi lovers could compare it to a Nano.
 
 ## Features
-### Single button gameplay
-I love having a virtual pet on my desk at work, but I also need to preserve my workflow from distractions.
-A single button gameplay is perfect for that.
-### 2 mini games
+### 3 mini games
 #### Catsino ![bar](./assets/icons/bar.png "BAR +1 of all !!!")
 Go to the casino with your TiMiNoo and do your best to win some yummy food to bring home.
-Press the button once to randomly pick a food item. Beware of the ghost though !
-#### Cat Wash
+Press A or B once to randomly pick a food item. Beware of the ghost though !
+#### Cat Wash ![soap](./assets/icons/bubbles.png "Soap bubbles yay !!!")
 When the fur of your TiMiNoo gets dirty, it's time for a proper toilet. Scrub scrub !
-Repeatedly press the button to get a squicky clean kitty.
+Repeatedly press A or B to get a squicky clean kitty.
+#### Kiss Cuss ![kiss](./assets/icons/kiss.png "Kiss your friends") / ![cuss](./assets/icons/cuss.png "Cuss at the naughty ghost")
+Give your friends a kiss and cuss at the ghost.
+When a friend appears on screen, press B to give a kiss and share the love.
+When a naughty ghost appears on screen, press A to cuss at it and make it go away.
+Be careful, cussing at your friends or kissing the ghost will cause you not to score points.
+Every properly places kiss / cuss will get you a sweet 1000 points bonus, so get ready and get up there.
+That game goes on for 10 rounds.
 ### 7 food items
 Your TiMiNoo will get hungry as time goes by. Feed it a variety of food including:
 - ![grape](./assets/icons/grape.png "Fresh grapes") Grape
@@ -43,8 +55,13 @@ Your TiMiNoo will get hungry as time goes by. Feed it a variety of food includin
 Your TiMiNoo will want to learn new things. Call Professor Koko Le Snail, a wise teacher that will share is best knowledge with your cuttie.
 ### Cuddle
 TiMiNoo craves attention and love, make sure to give it plenty.
-### Random visits from a friend ![cindy](./assets/icons/cindy.png "Your friend")
-Sometimes, when the cat gets hungry, its friend will come and offer either a nice Matcha tea or a home made Coco cake.
+### Random visits from your friends ![cindy](./assets/icons/cindy.png "Your friend")
+Sometimes, when the cat gets hungry, one of its friend will come.
+
+TiMiNoo has two good friends: Cindy and ChiChi
+
+- ![cindy](./assets/icons/cindy.png "Your friend Cindy") Cindy offers either a nice Matcha tea or a generous slice of a yummy homemade Coco cake. She may look like a bear, but she has a good heart and is very sweet (except when it's full moon). She lives in a big house with two bedrooms and four bathrooms,
+- ![chichi](./assets/icons/chichi.png "Your friend ChiChi") ChiChi loves to cook and sometimes misses an ingredient. She will ask you for help, be a good friend and give her what she needs. Occasionally, she will be sad and simply ask for a hug. She is nice, but ashe likes pineapple pizza, which is weird. Actually, it's kind of illegal in Italy, so she will never travel there.
 ### Scoring system
 Earn points every time you take action and increase your score.
 #### Feed

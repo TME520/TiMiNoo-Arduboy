@@ -1,3 +1,18 @@
+# 2023-07-11
+- Adjusted timing to favor action over idleness
+- Fixed Cuddle sequence getting stuck
+- Fixed Score screen for Kiss Cuss
+
+# 2023-07-08
+- WIP: Kiss Cuss mini game (ex-Shoot The Ghost)
+- Code cleanup
+- ChiChi visits implemented
+
+# 2023-07-06
+- WIP: TiMiNoo-Arduboy version 1.2.10
+- New character: ChiChi
+- 2 new games: Lucky Card and Shoot The Ghost
+
 # 2023-07-02
 - TiMiNoo version 1.2.9
 - Changed timings for cat needs
