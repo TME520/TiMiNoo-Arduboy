@@ -1,3 +1,6 @@
+# 2023-07-11
+- Adjusted timing to favor action over idleness
+
 # 2023-07-08
 - WIP: Kiss Cuss mini game (ex-Shoot The Ghost)
 - Code cleanup

@@ -53,15 +53,15 @@ long catEntertainment = random(1, 4);
 
 // Status change timing (decrement status variable every x frames)
 // Production timings
-unsigned long catHungerStep = random(4800, 28800);
+unsigned long catHungerStep = random(800, 3000);
 // unsigned long catHungerStep = 10;
-unsigned long catHygieneStep = random(14400, 28000);
+unsigned long catHygieneStep = random(1000, 4000);
 // unsigned long catHygieneStep = 15;
-unsigned long catMoraleStep = random(480, 14000);
+unsigned long catMoraleStep = random(500, 2000);
 // unsigned long catMoraleStep = 20;
-unsigned long catEducationStep = random(400, 13000);
+unsigned long catEducationStep = random(200, 1200);
 // unsigned long catEducationStep = 3;
-unsigned long catEntertainmentStep = random(4000, 15000);
+unsigned long catEntertainmentStep = random(240, 1500);
 // unsigned long catEntertainmentStep = 1;
 
 // Tracking status checks
