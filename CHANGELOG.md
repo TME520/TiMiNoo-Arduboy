@@ -1,3 +1,6 @@
+# 2023-07-12
+- Fixed Clean The Cat overlapping text
+
 # 2023-07-11
 - Adjusted timing to favor action over idleness
 - Fixed Cuddle sequence getting stuck

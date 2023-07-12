@@ -904,11 +904,13 @@ void loop() {
           // Clean The Cat game
           Sprites::drawSelfMasked(38, 8, cat_sitting_001_48x48, 0);
           checkButton();
+          /*
           arduboy.setCursor(0, 10);
           arduboy.print("  Clean The Cat   [A]");
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
           checkButton();
+          */
           generalCounter -= 1;
           if (generalCounter<0) {
             generalCounter = 0;
@@ -962,8 +964,10 @@ void loop() {
         case 1:
           arduboy.setCursor(0, 10);
           arduboy.print("   All clean yay !   ");
+          /*
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
+          */
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(69, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(81, 50, cuddle_heart_11x10, 0);
