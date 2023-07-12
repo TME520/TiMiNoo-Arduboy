@@ -963,7 +963,7 @@ void loop() {
           break;
         case 1:
           arduboy.setCursor(0, 10);
-          arduboy.print("   All clean yay !   ");
+          arduboy.print("      All clean yay !");
           /*
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
