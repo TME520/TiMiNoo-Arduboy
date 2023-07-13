@@ -1,3 +1,6 @@
+# 2023-07-14
+- WIP: TiMiNoo Arduboy version 1.2.11
+
 # 2023-07-12
 - Fixed Clean The Cat overlapping text
 
