@@ -28,7 +28,7 @@ Tamagotchi lovers could compare it to a Nano.
 
 ## Features
 ### 3 mini games
-#### Catsino ![bar](./assets/icons/bar.png "BAR +1 of all !!!")
+#### Catsino ![bar](./assets/icons/bar.png "BAR +1 of all !!!") ![dollar](./assets/icons/dollar.png "Double your score and replay")
 Go to the casino with your TiMiNoo and do your best to win some yummy food to bring home.
 Press A or B once to randomly pick a food item. Beware of the ghost though !
 #### Cat Wash ![soap](./assets/icons/bubbles.png "Soap bubbles yay !!!")
