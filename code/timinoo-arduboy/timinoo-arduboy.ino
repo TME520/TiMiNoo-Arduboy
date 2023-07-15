@@ -732,10 +732,9 @@ void loop() {
             if (selectedFood != 6) {
               currentSequence = 2;
             } else {
-              selectedFood = 0;
-              currentSequence = 0;
               generalCounter = 0;
-              gameMode = 2;
+              currentSequence = 0;
+              gameMode = 6;
             }
           }
           break;
