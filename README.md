@@ -72,6 +72,7 @@ Earn points every time you take action and increase your score.
 - Strawberry: +300 points
 - Grape, orange, apple: +200 points
 - Milk: +100 points
+- Dollar: Double your score
 #### Cuddle
 - Give a big kiss and a hug to your cat: +50 points
 #### Educate
@@ -79,7 +80,8 @@ Earn points every time you take action and increase your score.
 #### Wash
 - Keep your cat clean: +200 points
 #### Visit from a friend
-- Receive a visit from your friend: +10000 points
+- Receive a visit from your friend Cindy: +10000 points
+- Receive a visit from your friend ChiChi: +5000 points
 #### Beware of the ghost !
 - Ghost encounter: -666 points
 
