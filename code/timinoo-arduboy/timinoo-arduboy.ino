@@ -41,6 +41,7 @@ long randomGameIconXPos = 0;
 long randomFoodType = 0;
 int gameIconXPos = 0;
 int kisscussCounter = 0;
+long randomNumber = 0;
 
 // Cat status variables
 // Status metrics
@@ -904,55 +905,59 @@ void loop() {
           // Clean The Cat game
           Sprites::drawSelfMasked(38, 8, cat_sitting_001_48x48, 0);
           checkButton();
-          generalCounter -= 1;
+          randomNumber = random(-2, 3);
+          generalCounter -= 2;
           if (generalCounter<0) {
             generalCounter = 0;
-          } else if (generalCounter>100) {
+          } else if (generalCounter>127) {
             generalCounter = 0;
             currentSequence = 1;
           }
           switch(generalCounter) {
             case 5 ... 15:
-              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38 + randomNumber, 32, bubbles_30x30, 0);
               break;
             case 16 ... 36:
-              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(58, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58 + randomNumber, 32, bubbles_30x30, 0);
               break;
-            case 37 ... 57:
-              Sprites::drawSelfMasked(23, 16, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(58, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(73, 16, bubbles_30x30, 0);
+            case 37 ... 77:
+              Sprites::drawSelfMasked(23 + randomNumber, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(73 + randomNumber, 16, bubbles_30x30, 0);
               break;
-            case 58 ... 78:
-              Sprites::drawSelfMasked(23, 16, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(58, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(73, 16, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(32, 0, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(64, 0, bubbles_30x30, 0);
+            case 78 ... 98:
+              Sprites::drawSelfMasked(23 + randomNumber, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(73 + randomNumber, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(32 + randomNumber, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(64 + randomNumber, 0, bubbles_30x30, 0);
               break;
-            case 79 ... 89:
-              Sprites::drawSelfMasked(23, 16, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(38, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(58, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(73, 16, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(0, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(32, 0, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(64, 0, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(96, 32, bubbles_30x30, 0);
+            case 99 ... 110:
+              Sprites::drawSelfMasked(23 + randomNumber, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(73 + randomNumber, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(0 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(32 + randomNumber, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(64 + randomNumber, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(96 + randomNumber, 32, bubbles_30x30, 0);
               break;
-            case 90 ... 100:
-              Sprites::drawSelfMasked(0, 0, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(32, 0, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(64, 0, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(96, 0, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(0, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(32, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(64, 32, bubbles_30x30, 0);
-              Sprites::drawSelfMasked(96, 32, bubbles_30x30, 0);
+            case 111 ... 150:
+              Sprites::drawSelfMasked(23 + randomNumber, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(38 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(58 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(73 + randomNumber, 16, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(0 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(32 + randomNumber, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(64 + randomNumber, 0, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(96 + randomNumber, 32, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(16 + randomNumber, 48, bubbles_30x30, 0);
+              Sprites::drawSelfMasked(48 + randomNumber, 48, bubbles_30x30, 0);
           }
+          arduboy.drawFastHLine(0, 63, generalCounter, WHITE);
           break;
         case 1:
           arduboy.setCursor(0, 10);

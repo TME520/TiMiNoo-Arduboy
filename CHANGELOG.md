@@ -3,6 +3,7 @@
 - Saved a good chunk of dynamic memory by using the F() function in print statements
 - Not having food to feed TiMiNoo will trigger Catsino
 - New Catsino option: DOLLAR (double your score + replay)
+- Added a meter to Clean The Cat + The bubbles now move around a bit
 
 # 2023-07-14
 - WIP: TiMiNoo Arduboy version 1.2.11
