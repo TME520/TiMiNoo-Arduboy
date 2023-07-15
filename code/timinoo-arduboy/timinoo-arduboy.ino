@@ -45,7 +45,8 @@ int kisscussCounter = 0;
 // Cat status variables
 // Status metrics
 // 0 = depleted, 1 = low, 2 = average, 3 = full
-long catHunger = random(1, 4);
+// long catHunger = random(1, 4);
+long catHunger = 1;
 long catHygiene = random(1, 4);
 long catMorale = random(1, 4);
 long catEducation = random(1, 3);
@@ -53,16 +54,16 @@ long catEntertainment = random(1, 4);
 
 // Status change timing (decrement status variable every x frames)
 // Production timings
-unsigned long catHungerStep = random(800, 3000);
-// unsigned long catHungerStep = 10;
-unsigned long catHygieneStep = random(1000, 4000);
-// unsigned long catHygieneStep = 15;
-unsigned long catMoraleStep = random(500, 2000);
-// unsigned long catMoraleStep = 20;
-unsigned long catEducationStep = random(200, 1200);
-// unsigned long catEducationStep = 3;
-unsigned long catEntertainmentStep = random(240, 1500);
-// unsigned long catEntertainmentStep = 1;
+// unsigned long catHungerStep = random(800, 3000);
+unsigned long catHungerStep = 10;
+// unsigned long catHygieneStep = random(1000, 4000);
+unsigned long catHygieneStep = 15;
+// unsigned long catMoraleStep = random(500, 2000);
+unsigned long catMoraleStep = 20;
+// unsigned long catEducationStep = random(200, 1200);
+unsigned long catEducationStep = 3;
+// unsigned long catEntertainmentStep = random(240, 1500);
+unsigned long catEntertainmentStep = 1;
 
 // Tracking status checks
 unsigned long lastCatHungerCheck = 0;
@@ -486,11 +487,6 @@ void checkButton()
           currentSequence=1;
         }
       }
-    } else if (gameMode == 10) {
-      if (currentSequence == 0) {
-        currentSequence = 1;
-        generalCounter = 0;
-      }
     }
   }
 }
@@ -566,16 +562,10 @@ void loop() {
     // Time to feed the cat
     currentIcon = 6;
     randomVisit = random(0, 3136);
-    if (randomVisit<1000 && randomVisit % 2 == 0) {
-      // Cindy
+    if ((randomVisit<1000 && randomVisit % 2 == 0) || (randomVisit > 3000 && randomVisit % 2 == 0)) {
       currentSequence = 0;
       generalCounter = 0;
       gameMode = 7;
-    } else if (randomVisit > 3000 && randomVisit % 2 == 0) {
-      // ChiChi
-      currentSequence = 0;
-      generalCounter = 0;
-      gameMode = 10;
     } else {
       gameMode = 1;
     }
@@ -904,13 +894,6 @@ void loop() {
           // Clean The Cat game
           Sprites::drawSelfMasked(38, 8, cat_sitting_001_48x48, 0);
           checkButton();
-          /*
-          arduboy.setCursor(0, 10);
-          arduboy.print("  Clean The Cat   [A]");
-          arduboy.drawFastHLine(0, 8, 127, WHITE);
-          arduboy.drawFastHLine(0, 18, 127, WHITE);
-          checkButton();
-          */
           generalCounter -= 1;
           if (generalCounter<0) {
             generalCounter = 0;
@@ -964,10 +947,6 @@ void loop() {
         case 1:
           arduboy.setCursor(0, 10);
           arduboy.print("      All clean yay !");
-          /*
-          arduboy.drawFastHLine(0, 8, 127, WHITE);
-          arduboy.drawFastHLine(0, 18, 127, WHITE);
-          */
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(69, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(81, 50, cuddle_heart_11x10, 0);
@@ -1097,7 +1076,11 @@ void loop() {
         case 1:
           // Hello
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
-          Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+          if (randomVisit<1000) {
+            Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+          } else if (randomVisit > 3000) {
+            Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
+          }
           tinyfont.setCursor(45, 59);
           tinyfont.print("Hi friend!");
           generalCounter += 1;
@@ -1109,13 +1092,26 @@ void loop() {
         case 2:
           // Gift
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
-          Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
           tinyfont.setCursor(45, 59);
-          if (randomVisit<500) {
-            // Matcha
-            tinyfont.print("I got matcha tea!");
-          } else {
-            tinyfont.print("I got coco cake!");
+          switch (randomVisit) {
+            case 0 ... 499:
+              tinyfont.print("I got matcha tea!");
+              Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+              break;
+            case 500 ... 999:
+              tinyfont.print("I got coco cake!");
+              Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+              break;
+            case 3001 ... 3100:
+              // Strawberry
+              tinyfont.print("I am cooking");
+              Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
+              break;
+            case 3101 ... 3136:
+              // Cuddle
+              tinyfont.print("I am sad");
+              Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
+              break;
           }
           generalCounter += 1;
           if (generalCounter>24) {
@@ -1126,31 +1122,133 @@ void loop() {
         case 3:
           // Drink
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
-          if (randomVisit<500) {
-            // Matcha
-            Sprites::drawSelfMasked(49, 14, matcha_30x32, 0);
-          } else {
-            Sprites::drawSelfMasked(49, 14, coco_cake_28x32, 0);
-          }
-          Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
           tinyfont.setCursor(45, 59);
-          tinyfont.print("Have some <3");
+          switch (randomVisit) {
+            case 0 ... 999:
+              tinyfont.print("Have some <3");
+              Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+              if (randomVisit<500) {
+                Sprites::drawSelfMasked(49, 14, matcha_30x32, 0);
+              } else if (randomVisit<1000){
+                Sprites::drawSelfMasked(49, 14, coco_cake_28x32, 0);
+              }
+              break;
+            case 3001 ... 3050:
+              // Strawberry
+              tinyfont.print("I need strawberries");
+              Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
+              break;
+            case 3051 ... 3100:
+              // Orange
+              tinyfont.print("I need oranges");
+              Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
+              break;
+            case 3101 ... 3136:
+              // Cuddle
+              tinyfont.print("I need to cuddle");
+              Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
+              break;
+          }
           generalCounter += 1;
           if (generalCounter>24) {
-            currentSequence = 4;
             generalCounter = 0;
+            switch (randomVisit) {
+              case 0 ... 999:
+                currentSequence = 4;
+                break;
+              case 3001 ... 3050:
+                // Strawberry
+                if (strawberryFoodStock>0) {
+                  strawberryFoodStock -= 1;
+                  currentSequence = 4;
+                } else {
+                  currentSequence = 7;
+                }
+                break;
+              case 3051 ... 3100:
+                // Orange
+                if (orangeFoodStock>0) {
+                  orangeFoodStock -= 1;
+                  currentSequence = 4;
+                } else {
+                  currentSequence = 7;
+                }
+                break;
+              case 3101 ... 3136:
+                // Cuddle
+                currentSequence = 4;
+                break;
+            }
           }
           break;
         case 4:
           // Bonus
-          if (randomVisit<500) {
-            // Matcha
-            Sprites::drawSelfMasked(49, 28, matcha_30x32, 0);
-          } else {
-            Sprites::drawSelfMasked(50, 28, coco_cake_28x32, 0);
-          }
           arduboy.setCursor(0, 10);
-          arduboy.print("        Yum !        ");
+          arduboy.drawFastHLine(0, 8, 127, WHITE);
+          arduboy.drawFastHLine(0, 18, 127, WHITE);
+          switch (randomVisit) {
+            case 0 ... 999:
+              if (randomVisit<500) {
+                Sprites::drawSelfMasked(49, 28, matcha_30x32, 0);
+              } else {
+                Sprites::drawSelfMasked(50, 28, coco_cake_28x32, 0);
+              }
+              arduboy.print("        Yum !        ");
+              break;
+            case 3001 ... 3050:
+              // Strawberry
+              tinyfont.print("Thank you <3");
+              arduboy.print("   - 1 Strawberry    ");
+              Sprites::drawSelfMasked(49, 28, strawberry_28x28, 0);
+              break;
+            case 3051 ... 3100:
+              // Orange
+              tinyfont.print("Thanks a lot!");
+              arduboy.print("     - 1 Orange      ");
+              Sprites::drawSelfMasked(49, 28, orange_28x28, 0);
+              break;
+            case 3101 ... 3136:
+              // Cuddle
+              arduboy.print("  You cuddle ChiChi  ");
+              Sprites::drawSelfMasked(40, 28, cat_sitting_001_48x48, 0);
+              break;
+          }
+          generalCounter += 1;
+          if (generalCounter>24) {
+            currentSequence = 5;
+            generalCounter = 0;
+          }
+          break;
+        case 5:
+          // Everyone is happy
+          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
+          tinyfont.setCursor(45, 59);
+          switch (randomVisit) {
+            case 0 ... 999:
+              Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+              tinyfont.print("That was yummy!");
+              break;
+            case 3001 ... 3136:
+              Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
+              tinyfont.print("Aww thanks <3");
+              break;
+          }
+          generalCounter += 1;
+          if (generalCounter>24) {
+            currentSequence = 6;
+            generalCounter = 0;
+          }
+          break;
+        case 6:
+          arduboy.setCursor(0, 10);
+          switch (randomVisit) {
+            case 0 ... 999:
+              arduboy.print("    + 10000 points   ");
+              break;
+            case 3001 ... 3136:
+              arduboy.print("    + 5000 points    ");
+              break;
+          }
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
           generalCounter += 1;
@@ -1158,8 +1256,31 @@ void loop() {
             currentSequence = 0;
             generalCounter = 0;
             superHappyCounter = 100;
-            score += 10000;
-            catHunger = 3;
+            switch (randomVisit) {
+              case 0 ... 999:
+                score += 10000;
+                catHunger = 3;
+                break;
+              case 3001 ... 3136:
+                score += 5000;
+                break;
+            }
+            gameMode = 0;
+          }
+          break;
+        case 7:
+          // ChiChi is sad
+          arduboy.setCursor(0, 10);
+          arduboy.drawFastHLine(0, 8, 127, WHITE);
+          arduboy.drawFastHLine(0, 18, 127, WHITE);
+          Sprites::drawSelfMasked(96, 28, chichi_30x28, 0);
+          tinyfont.setCursor(40, 59);
+          tinyfont.print("Maybe next time...");
+          arduboy.print("   You have none...  ");
+          generalCounter += 1;
+          if (generalCounter>24) {
+            currentSequence = 0;
+            generalCounter = 0;
             gameMode = 0;
           }
           break;
@@ -1241,183 +1362,11 @@ void loop() {
         }
       }
       break;
-    case 10:
-      // ChiChi visit
-      switch (currentSequence) {
-        case 0:
-          // Knock
-          checkButton();
-          Sprites::drawSelfMasked(50, 14, door_28x30, 0);
-          tinyfont.setCursor(35, 59);
-          tinyfont.print("Knock knock!");
-          generalCounter += 1;
-          if (generalCounter>4800) {
-            currentSequence = 1;
-            generalCounter = 0;
-          }
-          break;
-        case 1:
-          // Hello
-          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
-          Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
-          tinyfont.setCursor(45, 59);
-          tinyfont.print("Hi friend!");
-          generalCounter += 1;
-          if (generalCounter>24) {
-            currentSequence = 2;
-            generalCounter = 0;
-          }
-          break;
-        case 2:
-          // ChiChi explains
-          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
-          Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
-          tinyfont.setCursor(45, 59);
-          switch (randomVisit) {
-            case 3001 ... 3100:
-              // Strawberry
-              tinyfont.print("I am cooking");
-              break;
-            case 3101 ... 3136:
-              // Cuddle
-              tinyfont.print("I am sad");
-              break;
-          }
-          generalCounter += 1;
-          if (generalCounter>24) {
-            generalCounter = 0;
-            currentSequence = 3;
-          }
-          break;
-        case 3:
-          // Request
-          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
-          Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
-          tinyfont.setCursor(35, 59);
-          switch (randomVisit) {
-            case 3001 ... 3050:
-              // Strawberry
-              tinyfont.print("I need strawberries");
-              break;
-            case 3051 ... 3100:
-              // Orange
-              tinyfont.print("I need oranges");
-              break;
-            case 3101 ... 3136:
-              // Cuddle
-              tinyfont.print("I need to cuddle");
-              break;
-          }
-          generalCounter += 1;
-          if (generalCounter>24) {
-            generalCounter = 0;
-            switch (randomVisit) {
-              case 3001 ... 3050:
-                // Strawberry
-                if (strawberryFoodStock>0) {
-                  strawberryFoodStock -= 1;
-                  currentSequence = 4;
-                } else {
-                  currentSequence = 7;
-                }
-                break;
-              case 3051 ... 3100:
-                // Orange
-                if (orangeFoodStock>0) {
-                  orangeFoodStock -= 1;
-                  currentSequence = 4;
-                } else {
-                  currentSequence = 7;
-                }
-                break;
-              case 3101 ... 3136:
-                // Cuddle
-                currentSequence = 4;
-                break;
-            }
-          }
-          break;
-        case 4:
-          // Give what ChiChi needs
-          arduboy.setCursor(0, 10);
-          arduboy.drawFastHLine(0, 8, 127, WHITE);
-          arduboy.drawFastHLine(0, 18, 127, WHITE);
-          Sprites::drawSelfMasked(96, 28, chichi_30x28, 0);
-          tinyfont.setCursor(45, 59);
-          switch (randomVisit) {
-            case 3001 ... 3050:
-              // Strawberry
-              tinyfont.print("Thank you <3");
-              arduboy.print("   - 1 Strawberry    ");
-              Sprites::drawSelfMasked(49, 28, strawberry_28x28, 0);
-              break;
-            case 3051 ... 3100:
-              // Orange
-              tinyfont.print("Thanks a lot!");
-              arduboy.print("     - 1 Orange      ");
-              Sprites::drawSelfMasked(49, 28, orange_28x28, 0);
-              break;
-            case 3101 ... 3136:
-              // Cuddle
-              arduboy.print("  You cuddle ChiChi  ");
-              Sprites::drawSelfMasked(40, 28, cat_sitting_001_48x48, 0);
-              break;
-          }
-          generalCounter += 1;
-          if (generalCounter>24) {
-            generalCounter = 0;
-            currentSequence = 5;
-          }
-          break;
-        case 5:
-          // ChiChi is happy
-          Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
-          Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
-          tinyfont.setCursor(45, 59);
-          tinyfont.print("Aww thanks <3");
-          generalCounter += 1;
-          if (generalCounter>24) {
-            currentSequence = 6;
-            generalCounter = 0;
-          }
-          break;
-        case 6:
-          arduboy.setCursor(0, 10);
-          arduboy.print("    + 5000 points    ");
-          arduboy.drawFastHLine(0, 8, 127, WHITE);
-          arduboy.drawFastHLine(0, 18, 127, WHITE);
-          generalCounter += 1;
-          if (generalCounter>24) {
-            currentSequence = 0;
-            generalCounter = 0;
-            superHappyCounter = 100;
-            score += 5000;
-            gameMode = 0;
-          }
-          break;
-        case 7:
-          // ChiChi is sad
-          arduboy.setCursor(0, 10);
-          arduboy.drawFastHLine(0, 8, 127, WHITE);
-          arduboy.drawFastHLine(0, 18, 127, WHITE);
-          Sprites::drawSelfMasked(96, 28, chichi_30x28, 0);
-          tinyfont.setCursor(40, 59);
-          tinyfont.print("Maybe next time...");
-          arduboy.print("   You have none...  ");
-          generalCounter += 1;
-          if (generalCounter>24) {
-            currentSequence = 0;
-            generalCounter = 0;
-            gameMode = 0;
-          }
-          break;
-      }
-      break;
     case 99:
       // Show version
       Sprites::drawSelfMasked(0, 0, timinoo_logo, 0);
       arduboy.setCursor(0, 57);
-      arduboy.print("        v1.2.10      ");
+      arduboy.print("        v1.2.11      ");
       generalCounter += 1;
       if (generalCounter>24) {
         gameMode = 0;
