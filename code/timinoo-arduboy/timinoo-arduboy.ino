@@ -344,6 +344,14 @@ const uint8_t PROGMEM kiss_28x28[] = {
 0x00, 0x00, 0x00, 0x00, 0x03, 0x03, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 
 };
 
+const uint8_t PROGMEM dollar_28x28[] = {
+28, 28,
+0x00, 0x00, 0xf0, 0xf0, 0xfc, 0xfc, 0xff, 0xff, 0x3f, 0x3f, 0x3c, 0x3c, 0x3c, 0x3c, 0x3f, 0x3f, 0xff, 0xff, 0xfc, 0xfc, 0xf3, 0xf3, 0x0c, 0x0c, 0xf0, 0xf0, 0x00, 0x00, 
+0x00, 0x00, 0x3f, 0x3f, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xf0, 0xf3, 0xf3, 0xf0, 0xf0, 0xf0, 0xf0, 0xf3, 0xf3, 0xf3, 0xf3, 0xc3, 0xc3, 0x30, 0x30, 0xcf, 0xcf, 0x00, 0x00, 
+0x00, 0x00, 0xfc, 0xfc, 0xfc, 0xfc, 0xfc, 0xfc, 0xc0, 0xc0, 0xcc, 0xcc, 0xc0, 0xc0, 0xc0, 0xc0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00, 
+0x00, 0x00, 0x00, 0x00, 0x03, 0x03, 0x0f, 0x0f, 0x0f, 0x0f, 0x03, 0x03, 0x03, 0x03, 0x0f, 0x0f, 0x0f, 0x0f, 0x03, 0x03, 0x0c, 0x0c, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 
+};
+
 Arduboy2 arduboy;
 Tinyfont tinyfont = Tinyfont(arduboy.sBuffer, Arduboy2::width(), Arduboy2::height());
 
@@ -415,7 +423,7 @@ void checkButton()
     } else if (gameMode == 6) {
       // Game
       if (currentSequence == 0) {
-        gamePick = random (0, 7);
+        gamePick = random (0, 8);
         switch (gamePick) {
           case 0:
             if (score>666 && frameCounter % 2 == 0) {
@@ -977,7 +985,7 @@ void loop() {
         Sprites::drawSelfMasked(85, 18, casino_frame_40x40, 0);
         checkButton();
         for (gameIconXPos = 9; gameIconXPos < 92; gameIconXPos += 41) {
-          randomFoodType = random(0, 7);
+          randomFoodType = random(0, 8);
           switch (randomFoodType) {
             case 0:
               Sprites::drawSelfMasked(gameIconXPos, 24, ghost_28x28, 0);
@@ -999,6 +1007,9 @@ void loop() {
               break;
             case 6:
               Sprites::drawSelfMasked(gameIconXPos, 24, orange_28x28, 0);
+              break;
+            case 7:
+              Sprites::drawSelfMasked(gameIconXPos, 24, dollar_28x28, 0);
               break;
           }
         }
@@ -1048,15 +1059,27 @@ void loop() {
             Sprites::drawSelfMasked(50, 28, orange_28x28, 0);
             arduboy.print(F("     + 1  orange     "));
             break;
+          case 7:
+            // Replay + Double
+            Sprites::drawSelfMasked(50, 28, dollar_28x28, 0);
+            arduboy.print(F("Double score + Replay"));
+            break;
         }
         generalCounter += 1;
         if (generalCounter>24) {
           generalCounter = 0;
           if (gamePick > 0) {
-            superHappyCounter = 100;
-            catEntertainment = 3;
+            if (gamePick==7) {
+              generalCounter = 0;
+              currentSequence = 0;
+              score = score * 2;
+              gameMode = 6;
+            } else {
+              superHappyCounter = 100;
+              catEntertainment = 3;
+              gameMode = 0;
+            }
           }
-          gameMode = 0;
         }
       }
       break;
