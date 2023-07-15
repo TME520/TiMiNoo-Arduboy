@@ -1,3 +1,6 @@
+# 2023-07-15
+- Merging random visit code for Cindy and ChiChi
+
 # 2023-07-14
 - WIP: TiMiNoo Arduboy version 1.2.11
 
