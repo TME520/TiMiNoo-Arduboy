@@ -703,27 +703,27 @@ void loop() {
           switch (selectedFood) {
             case 1:
               Sprites::drawSelfMasked(50, 28, strawberry_28x28, 0);
-              arduboy.print("  Yummy  strawberry  ");
+              arduboy.print(F("  Yummy  strawberry  "));
               break;
             case 2:
               Sprites::drawSelfMasked(50, 28, grape_28x28, 0);
-              arduboy.print("    Fresh  grapes    ");
+              arduboy.print(F("    Fresh  grapes    "));
               break;
             case 3:
               Sprites::drawSelfMasked(50, 28, milk_28x28, 0);
-              arduboy.print("     Farm  milk      ");
+              arduboy.print(F("     Farm  milk      "));
               break;
             case 4:
               Sprites::drawSelfMasked(50, 28, orange_28x28, 0);
-              arduboy.print("    Juicy  orange    ");
+              arduboy.print(F("    Juicy  orange    "));
               break;
             case 5:
               Sprites::drawSelfMasked(50, 28, apple_28x28, 0);
-              arduboy.print("    Tasty  apple     ");
+              arduboy.print(F("    Tasty  apple     "));
               break;
             case 6:
               Sprites::drawSelfMasked(50, 28, ghost_28x28, 0);
-              arduboy.print("      No  food       ");
+              arduboy.print(F("      No  food       "));
               break;
           }
           generalCounter += 1;
@@ -732,7 +732,10 @@ void loop() {
             if (selectedFood != 6) {
               currentSequence = 2;
             } else {
-              gameMode = 0;
+              selectedFood = 0;
+              currentSequence = 0;
+              generalCounter = 0;
+              gameMode = 2;
             }
           }
           break;
@@ -740,7 +743,7 @@ void loop() {
           // Yum
           if (selectedFood != 6) {
             arduboy.setCursor(0, 55);
-            arduboy.print("        Yum !        ");
+            arduboy.print(F("        Yum !        "));
           }
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           switch (selectedFood) {
@@ -815,7 +818,7 @@ void loop() {
         case 1:
           // Snail says hello
           arduboy.setCursor(0, 55);
-          arduboy.print("           Hi! >     ");
+          arduboy.print(F("           Hi! >     "));
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(97, 40, koko_le_snail_26x22, 0);
           generalCounter += 1;
@@ -873,7 +876,7 @@ void loop() {
           // Score
           Sprites::drawSelfMasked(51, 28, study_26x28, 0);
           arduboy.setCursor(0, 10);
-          arduboy.print("    + 1  Education   ");
+          arduboy.print(F("    + 1  Education   "));
           arduboy.drawFastHLine(0, 8, 127, WHITE);
           arduboy.drawFastHLine(0, 18, 127, WHITE);
           generalCounter += 1;
@@ -946,7 +949,7 @@ void loop() {
           break;
         case 1:
           arduboy.setCursor(0, 10);
-          arduboy.print("      All clean yay !");
+          arduboy.print(F("      All clean yay !"));
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           Sprites::drawSelfMasked(69, 50, cuddle_heart_11x10, 0);
           Sprites::drawSelfMasked(81, 50, cuddle_heart_11x10, 0);
@@ -1014,37 +1017,37 @@ void loop() {
           case 0:
             // Ghost
             Sprites::drawSelfMasked(50, 28, ghost_28x28, 0);
-            arduboy.print("   Nothing, boo !    ");
+            arduboy.print(F("   Nothing, boo !    "));
             break;
           case 1:
             // Bar
             Sprites::drawSelfMasked(50, 28, bar_28x28, 0);
-            arduboy.print("     + 1 of all!     ");
+            arduboy.print(F("     + 1 of all!     "));
             break;
           case 2:
             // Strawberry
             Sprites::drawSelfMasked(50, 28, strawberry_28x28, 0);
-            arduboy.print("   + 1  strawberry   ");
+            arduboy.print(F("   + 1  strawberry   "));
             break;
           case 3:
             // Apple
             Sprites::drawSelfMasked(50, 28, apple_28x28, 0);
-            arduboy.print("     + 1  apple      ");
+            arduboy.print(F("     + 1  apple      "));
             break;
           case 4:
             // Grape
             Sprites::drawSelfMasked(50, 28, grape_28x28, 0);
-            arduboy.print("     + 1  grape      ");
+            arduboy.print(F("     + 1  grape      "));
             break;
           case 5:
             // Milk
             Sprites::drawSelfMasked(50, 28, milk_28x28, 0);
-            arduboy.print("      + 1  milk      ");
+            arduboy.print(F("      + 1  milk      "));
             break;
           case 6:
             // Orange
             Sprites::drawSelfMasked(50, 28, orange_28x28, 0);
-            arduboy.print("     + 1  orange     ");
+            arduboy.print(F("     + 1  orange     "));
             break;
         }
         generalCounter += 1;
@@ -1193,23 +1196,23 @@ void loop() {
               } else {
                 Sprites::drawSelfMasked(50, 28, coco_cake_28x32, 0);
               }
-              arduboy.print("        Yum !        ");
+              arduboy.print(F("        Yum !        "));
               break;
             case 3001 ... 3050:
               // Strawberry
               tinyfont.print("Thank you <3");
-              arduboy.print("   - 1 Strawberry    ");
+              arduboy.print(F("   - 1 Strawberry    "));
               Sprites::drawSelfMasked(49, 28, strawberry_28x28, 0);
               break;
             case 3051 ... 3100:
               // Orange
               tinyfont.print("Thanks a lot!");
-              arduboy.print("     - 1 Orange      ");
+              arduboy.print(F("     - 1 Orange      "));
               Sprites::drawSelfMasked(49, 28, orange_28x28, 0);
               break;
             case 3101 ... 3136:
               // Cuddle
-              arduboy.print("  You cuddle ChiChi  ");
+              arduboy.print(F("  You hug ChiChi  "));
               Sprites::drawSelfMasked(40, 28, cat_sitting_001_48x48, 0);
               break;
           }
@@ -1243,10 +1246,10 @@ void loop() {
           arduboy.setCursor(0, 10);
           switch (randomVisit) {
             case 0 ... 999:
-              arduboy.print("    + 10000 points   ");
+              arduboy.print(F("    + 10000 points   "));
               break;
             case 3001 ... 3136:
-              arduboy.print("    + 5000 points    ");
+              arduboy.print(F("    + 5000 points    "));
               break;
           }
           arduboy.drawFastHLine(0, 8, 127, WHITE);
@@ -1276,7 +1279,7 @@ void loop() {
           Sprites::drawSelfMasked(96, 28, chichi_30x28, 0);
           tinyfont.setCursor(40, 59);
           tinyfont.print("Maybe next time...");
-          arduboy.print("   You have none...  ");
+          arduboy.print(F("   You have none...  "));
           generalCounter += 1;
           if (generalCounter>24) {
             currentSequence = 0;
@@ -1296,7 +1299,7 @@ void loop() {
         }
         checkButton();
         arduboy.setCursor(0, 10);
-        arduboy.print("[B]  Kiss ~ Cuss  [A]");
+        arduboy.print(F("[B]  Kiss ~ Cuss  [A]"));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         checkButton();
@@ -1337,7 +1340,7 @@ void loop() {
         // Happy
         Sprites::drawSelfMasked(51, 28, kiss_28x28, 0);
         arduboy.setCursor(0, 10);
-        arduboy.print("    + 1000 points    ");
+        arduboy.print(F("    + 1000 points    "));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         generalCounter += 1;
@@ -1350,7 +1353,7 @@ void loop() {
         }
       } else if (currentSequence == 3) {
         arduboy.setCursor(0, 10);
-        arduboy.print(" Thanks for playing! ");
+        arduboy.print(F(" Thanks for playing! "));
         arduboy.drawFastHLine(0, 8, 127, WHITE);
         arduboy.drawFastHLine(0, 18, 127, WHITE);
         generalCounter += 1;
@@ -1366,7 +1369,7 @@ void loop() {
       // Show version
       Sprites::drawSelfMasked(0, 0, timinoo_logo, 0);
       arduboy.setCursor(0, 57);
-      arduboy.print("        v1.2.11      ");
+      arduboy.print(F("        v1.2.11      "));
       generalCounter += 1;
       if (generalCounter>24) {
         gameMode = 0;

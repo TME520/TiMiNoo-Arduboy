@@ -1,5 +1,6 @@
 # 2023-07-15
-- Merging random visit code for Cindy and ChiChi
+- Merged random visit code for Cindy and ChiChi
+- Saved a good chunk of dynamic memory by using the F() function in print statements
 
 # 2023-07-14
 - WIP: TiMiNoo Arduboy version 1.2.11
