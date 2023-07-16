@@ -1,3 +1,7 @@
+# 2023-07-16
+- Catsino: Fixed game-blocking bug when getting ghost
+- Polishing Kiss Cuss
+
 # 2023-07-15
 - Merged random visit code for Cindy and ChiChi
 - Saved a good chunk of dynamic memory by using the F() function in print statements

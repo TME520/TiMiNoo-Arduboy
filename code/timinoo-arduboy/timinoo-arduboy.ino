@@ -1084,6 +1084,11 @@ void loop() {
               catEntertainment = 3;
               gameMode = 0;
             }
+          } else {
+            // Got the ghost
+            generalCounter = 0;
+            currentSequence = 0;
+            gameMode = 6;
           }
         }
       }
