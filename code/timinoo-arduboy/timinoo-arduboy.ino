@@ -1338,7 +1338,7 @@ void loop() {
       if (currentSequence == 0) {
         // Display random character (Koko, Cindy, ChiChi or Ghost)
         if (kisscussCounter > 10) {
-          currentSequence = 3;
+          currentSequence = 5;
           generalCounter = 0;
         }
         checkButton();
@@ -1374,15 +1374,15 @@ void loop() {
         // Unhappy 1
         switch (randomFoodType) {
           case 0 ... 2:
-            for (int XPos=0; XPos<127; XPos += 12) {
-              for (int YPos=0; YPos<63; YPos += 12) {
+            for (int XPos=3; XPos<120; XPos += 12) {
+              for (int YPos=1; YPos<60; YPos += 12) {
                 Sprites::drawSelfMasked(XPos, YPos, skull_11x11, 0);
               }
             }
             break;
           case 3:
-            for (int XPos=0; XPos<127; XPos += 12) {
-              for (int YPos=0; YPos<63; YPos += 11) {
+            for (int XPos=3; XPos<120; XPos += 12) {
+              for (int YPos=2; YPos<60; YPos += 12) {
                 Sprites::drawSelfMasked(XPos, YPos, heart_11x10, 0);
               }
             }
@@ -1411,15 +1411,15 @@ void loop() {
         // Happy 1
         switch (randomFoodType) {
           case 0 ... 2:
-            for (int XPos=0; XPos<127; XPos += 12) {
-              for (int YPos=0; YPos<63; YPos += 11) {
+            for (int XPos=3; XPos<120; XPos += 12) {
+              for (int YPos=2; YPos<60; YPos += 12) {
                 Sprites::drawSelfMasked(XPos, YPos, heart_11x10, 0);
               }
             }
             break;
           case 3:
-            for (int XPos=0; XPos<127; XPos += 12) {
-              for (int YPos=0; YPos<63; YPos += 12) {
+            for (int XPos=3; XPos<120; XPos += 12) {
+              for (int YPos=1; YPos<60; YPos += 12) {
                 Sprites::drawSelfMasked(XPos, YPos, skull_11x11, 0);
               }
             }

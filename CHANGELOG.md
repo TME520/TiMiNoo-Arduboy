@@ -1,3 +1,6 @@
+# 2023-07-17
+- Polishing Kiss Cuss
+
 # 2023-07-16
 - Catsino: Fixed game-blocking bug when getting ghost
 - Polishing Kiss Cuss
