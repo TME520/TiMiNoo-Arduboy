@@ -1374,22 +1374,42 @@ void loop() {
         // Unhappy 1
         switch (randomFoodType) {
           case 0 ... 2:
-            for (int XPos=3; XPos<120; XPos += 12) {
-              for (int YPos=1; YPos<60; YPos += 12) {
-                Sprites::drawSelfMasked(XPos, YPos, skull_11x11, 0);
+            for ( int xoffseteven = 0; xoffseteven > -24; xoffseteven -= 1 ) {
+              arduboy.clear();
+              for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
+                for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
+                  Sprites::drawSelfMasked(backgroundx, backgroundy, skull_11x11, 0);
+                }
               }
+              for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
+                for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
+                  Sprites::drawSelfMasked(backgroundx, backgroundy, skull_11x11, 0);
+                }
+              }
+              arduboy.display();
+              delay(5);
             }
             break;
           case 3:
-            for (int XPos=3; XPos<120; XPos += 12) {
-              for (int YPos=2; YPos<60; YPos += 12) {
-                Sprites::drawSelfMasked(XPos, YPos, heart_11x10, 0);
+            for ( int xoffseteven = 0; xoffseteven > -24; xoffseteven -= 1 ) {
+              arduboy.clear();
+              for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
+                for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
+                  Sprites::drawSelfMasked(backgroundx, backgroundy, heart_11x10, 0);
+                }
               }
+              for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
+                for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
+                  Sprites::drawSelfMasked(backgroundx, backgroundy, heart_11x10, 0);
+                }
+              }
+              arduboy.display();
+              delay(5);
             }
             break;
         }
         generalCounter += 1;
-        if (generalCounter>8) {
+        if (generalCounter>2) {
           generalCounter = 0;
           currentSequence = 2;
         }
@@ -1411,22 +1431,42 @@ void loop() {
         // Happy 1
         switch (randomFoodType) {
           case 0 ... 2:
-            for (int XPos=3; XPos<120; XPos += 12) {
-              for (int YPos=2; YPos<60; YPos += 12) {
-                Sprites::drawSelfMasked(XPos, YPos, heart_11x10, 0);
+            for ( int xoffseteven = 0; xoffseteven > -24; xoffseteven -= 1 ) {
+              arduboy.clear();
+              for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
+                for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
+                  Sprites::drawSelfMasked(backgroundx, backgroundy, heart_11x10, 0);
+                }
               }
+              for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
+                for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
+                  Sprites::drawSelfMasked(backgroundx, backgroundy, heart_11x10, 0);
+                }
+              }
+              arduboy.display();
+              delay(5);
             }
             break;
           case 3:
-            for (int XPos=3; XPos<120; XPos += 12) {
-              for (int YPos=1; YPos<60; YPos += 12) {
-                Sprites::drawSelfMasked(XPos, YPos, skull_11x11, 0);
+            for ( int xoffseteven = 0; xoffseteven > -24; xoffseteven -= 1 ) {
+              arduboy.clear();
+              for ( int backgroundx = xoffseteven; backgroundx < 128; backgroundx += 24 ) {
+                for ( int backgroundy = 0; backgroundy < 64; backgroundy += 24 ) {
+                  Sprites::drawSelfMasked(backgroundx, backgroundy, skull_11x11, 0);
+                }
               }
+              for ( int backgroundx = abs(xoffseteven)-12; backgroundx < 128; backgroundx += 24 ) {
+                for ( int backgroundy = 12; backgroundy < 64; backgroundy += 24 ) {
+                  Sprites::drawSelfMasked(backgroundx, backgroundy, skull_11x11, 0);
+                }
+              }
+              arduboy.display();
+              delay(5);
             }
             break;
         }
         generalCounter += 1;
-        if (generalCounter>8) {
+        if (generalCounter>2) {
           generalCounter = 0;
           currentSequence = 4;
         }
