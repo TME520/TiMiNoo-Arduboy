@@ -1,3 +1,25 @@
+# 2023-07-18
+- TiMiNoo Arduboy version 1.2.11 is now feature-complete
+- Fixed scoring bug in Kiss Cuss mini game
+- Game Main Menu is complete
+
+# 2023-07-17
+- Polishing Kiss Cuss
+
+# 2023-07-16
+- Catsino: Fixed game-blocking bug when getting ghost
+- Polishing Kiss Cuss
+
+# 2023-07-15
+- Merged random visit code for Cindy and ChiChi
+- Saved a good chunk of dynamic memory by using the F() function in print statements
+- Not having food to feed TiMiNoo will trigger Catsino
+- New Catsino option: DOLLAR (double your score + replay)
+- Added a meter to Clean The Cat + The bubbles now move around a bit
+
+# 2023-07-14
+- WIP: TiMiNoo Arduboy version 1.2.11
+
 # 2023-07-12
 - Fixed Clean The Cat overlapping text
 

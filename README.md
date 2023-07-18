@@ -5,8 +5,7 @@ Cute 1 bit VPet for Arduboy - Feed, cuddle, clean and educate your own unique ca
 
 ![TiMiNoo logo](./assets/logo/2.png "TiMiNoo logo")
 
-## Current version: 1.2.10
-## WIP version: n/a
+## Current version: 1.2.11
 
 ## Presentation
 
@@ -29,7 +28,7 @@ Tamagotchi lovers could compare it to a Nano.
 
 ## Features
 ### 3 mini games
-#### Catsino ![bar](./assets/icons/bar.png "BAR +1 of all !!!")
+#### Catsino ![bar](./assets/icons/bar.png "BAR +1 of all !!!") ![dollar](./assets/icons/dollar.png "Double your score and replay")
 Go to the casino with your TiMiNoo and do your best to win some yummy food to bring home.
 Press A or B once to randomly pick a food item. Beware of the ghost though !
 #### Cat Wash ![soap](./assets/icons/bubbles.png "Soap bubbles yay !!!")
@@ -40,7 +39,7 @@ Give your friends a kiss and cuss at the ghost.
 When a friend appears on screen, press B to give a kiss and share the love.
 When a naughty ghost appears on screen, press A to cuss at it and make it go away.
 Be careful, cussing at your friends or kissing the ghost will cause you not to score points.
-Every properly places kiss / cuss will get you a sweet 1000 points bonus, so get ready and get up there.
+Every properly placed kiss / cuss will get you a sweet 1000 points bonus, so get ready and get up there.
 That game goes on for 10 rounds.
 ### 7 food items
 Your TiMiNoo will get hungry as time goes by. Feed it a variety of food including:
@@ -55,13 +54,13 @@ Your TiMiNoo will get hungry as time goes by. Feed it a variety of food includin
 Your TiMiNoo will want to learn new things. Call Professor Koko Le Snail, a wise teacher that will share is best knowledge with your cuttie.
 ### Cuddle
 TiMiNoo craves attention and love, make sure to give it plenty.
-### Random visits from your friends ![cindy](./assets/icons/cindy.png "Your friend")
+### Random visits from your friends ![cindy](./assets/icons/cindy.png "Your friend Cindy") ![chichi](./assets/icons/chichi.png "Your friend ChiChi")
 Sometimes, when the cat gets hungry, one of its friend will come.
 
 TiMiNoo has two good friends: Cindy and ChiChi
 
 - ![cindy](./assets/icons/cindy.png "Your friend Cindy") Cindy offers either a nice Matcha tea or a generous slice of a yummy homemade Coco cake. She may look like a bear, but she has a good heart and is very sweet (except when it's full moon). She lives in a big house with two bedrooms and four bathrooms,
-- ![chichi](./assets/icons/chichi.png "Your friend ChiChi") ChiChi loves to cook and sometimes misses an ingredient. She will ask you for help, be a good friend and give her what she needs. Occasionally, she will be sad and simply ask for a hug. She is nice, but ashe likes pineapple pizza, which is weird. Actually, it's kind of illegal in Italy, so she will never travel there.
+- ![chichi](./assets/icons/chichi.png "Your friend ChiChi") ChiChi loves to cook and sometimes misses an ingredient. She will ask you for help, be a good friend and give her what she needs. Occasionally, she will be sad and simply ask for a hug. She is nice, but she likes pineapple pizza, which is weird. Actually, it's kind of illegal in Italy, so she will never travel there.
 ### Scoring system
 Earn points every time you take action and increase your score.
 #### Feed
@@ -73,6 +72,7 @@ Earn points every time you take action and increase your score.
 - Strawberry: +300 points
 - Grape, orange, apple: +200 points
 - Milk: +100 points
+- Dollar: Double your score
 #### Cuddle
 - Give a big kiss and a hug to your cat: +50 points
 #### Educate
@@ -80,9 +80,12 @@ Earn points every time you take action and increase your score.
 #### Wash
 - Keep your cat clean: +200 points
 #### Visit from a friend
-- Receive a visit from your friend: +10000 points
+- Receive a visit from your friend Cindy: +10000 points
+- Receive a visit from your friend ChiChi: +5000 points
 #### Beware of the ghost !
 - Ghost encounter: -666 points
+### Main Menu
+Access all the features of the game by pressing LEFT or RIGHT. Confirm selection with A or B.
 
 ## How to play
 ### Starting the game
