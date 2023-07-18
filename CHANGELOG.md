@@ -1,3 +1,8 @@
+# 2023-07-18
+- TiMiNoo Arduboy version 1.2.11 is now feature-complete
+- Fixed scoring bug in Kiss Cuss mini game
+- Game Main Menu is complete
+
 # 2023-07-17
 - Polishing Kiss Cuss
 

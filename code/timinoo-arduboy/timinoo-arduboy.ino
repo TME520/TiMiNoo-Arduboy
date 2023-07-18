@@ -497,8 +497,7 @@ void checkButton()
           // Happy
           currentSequence=3;
         }
-      }
-      if ( arduboy.justPressed(B_BUTTON) ) {
+      } else if ( arduboy.justPressed(B_BUTTON) ) {
         // Button B: Kiss
         if (randomFoodType<3) {
           // Happy
@@ -506,6 +505,62 @@ void checkButton()
         } else {
           // Unhappy
           currentSequence=1;
+        }
+      }
+    } else if (gameMode == 10) {
+      // Select menu item
+      generalCounter = 0;
+      switch (currentSequence) {
+        case 0:
+          // Feed
+          selectedFood = 0;
+          currentSequence = 0;
+          generalCounter = 0;
+          gameMode = 2;
+          break;
+        case 1:
+          // Play
+          generalCounter = 0;
+          currentSequence = 0;
+          gameMode = 6;
+          break;
+        case 2:
+          // Clean
+          currentSequence = 0;
+          generalCounter = 0;
+          gameMode = 5;
+          break;
+        case 3:
+          // Cuddle
+          generalCounter = 0;
+          gameMode = 3;
+          break;
+        case 4:
+          // Study
+          randomQuote = random(1, 7);
+          kokoXPos = 128;
+          generalCounter = 0;
+          currentSequence = 0;
+          gameMode = 4;
+          break;
+      }
+    }
+  } else if ((arduboy.justPressed(LEFT_BUTTON)) || (arduboy.justPressed(RIGHT_BUTTON))) {
+    // Arrows
+    if (gameMode == 0) {
+      gameMode = 10;
+      currentSequence = 0;
+      generalCounter = 0;
+    } else if (gameMode == 10) {
+      if (arduboy.justPressed(LEFT_BUTTON)) {
+        currentSequence -= 1;
+        if (currentSequence < 0) {
+          currentSequence = 4;
+        }
+      } else if (arduboy.justPressed(RIGHT_BUTTON)) {
+        currentSequence += 1;
+        if (currentSequence > 4) {
+          currentSequence = 0;
         }
       }
     }
@@ -1337,10 +1392,6 @@ void loop() {
       // Game: Kiss Cuss
       if (currentSequence == 0) {
         // Display random character (Koko, Cindy, ChiChi or Ghost)
-        if (kisscussCounter > 10) {
-          currentSequence = 5;
-          generalCounter = 0;
-        }
         checkButton();
         arduboy.setCursor(0, 10);
         arduboy.print(F("[B]  Kiss ~ Cuss  [A]"));
@@ -1425,6 +1476,10 @@ void loop() {
           generalCounter = 0;
           currentSequence = 0;
           kisscussCounter += 1;
+          if (kisscussCounter > 10) {
+            currentSequence = 5;
+            generalCounter = 0;
+          }
           randomFoodType = random(0, 4);
         }
       } else if (currentSequence == 3) {
@@ -1483,6 +1538,10 @@ void loop() {
           generalCounter = 0;
           currentSequence = 0;
           kisscussCounter += 1;
+          if (kisscussCounter > 10) {
+            currentSequence = 5;
+            generalCounter = 0;
+          }
           randomFoodType = random(0, 4);
         }
       } else if (currentSequence == 5) {
@@ -1497,6 +1556,44 @@ void loop() {
           kisscussCounter = 0;
           superHappyCounter = 100;
         }
+      }
+      break;
+    case 10:
+      arduboy.setCursor(0, 10);
+      switch (currentSequence) {
+        case 0:
+          // Pizza
+          arduboy.print(F("  > Feed  TiMiNoo <  "));
+          Sprites::drawSelfMasked(51, 28, pizza_26x28, 0);
+          break;
+        case 1:
+          // Gamepad
+          arduboy.print(F("> Play with TiMiNoo <"));
+          Sprites::drawSelfMasked(48, 28, play_32x20, 0);
+          break;
+        case 2:
+          // Bubbles
+          arduboy.print(F("  > Wash  TiMiNoo <  "));
+          Sprites::drawSelfMasked(49, 28, bubbles_30x30, 0);
+          break;
+        case 3:
+          // Heart
+          arduboy.print(F(" > Cuddle  TiMiNoo < "));
+          Sprites::drawSelfMasked(52, 28, cuddle_24x24, 0);
+          break;
+        case 4:
+          // Book
+          arduboy.print(F("  > Train TiMiNoo <  "));
+          Sprites::drawSelfMasked(51, 28, study_26x28, 0);
+          break;
+      }
+      arduboy.drawFastHLine(0, 8, 127, WHITE);
+      arduboy.drawFastHLine(0, 18, 127, WHITE);
+      generalCounter += 1;
+      if (generalCounter>48) {
+        currentSequence = 0;
+        generalCounter = 0;
+        gameMode = 0;
       }
       break;
     case 99:
