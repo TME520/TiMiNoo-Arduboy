@@ -39,7 +39,7 @@ Give your friends a kiss and cuss at the ghost.
 When a friend appears on screen, press B to give a kiss and share the love.
 When a naughty ghost appears on screen, press A to cuss at it and make it go away.
 Be careful, cussing at your friends or kissing the ghost will cause you not to score points.
-Every properly places kiss / cuss will get you a sweet 1000 points bonus, so get ready and get up there.
+Every properly placed kiss / cuss will get you a sweet 1000 points bonus, so get ready and get up there.
 That game goes on for 10 rounds.
 ### 7 food items
 Your TiMiNoo will get hungry as time goes by. Feed it a variety of food including:
@@ -84,6 +84,8 @@ Earn points every time you take action and increase your score.
 - Receive a visit from your friend ChiChi: +5000 points
 #### Beware of the ghost !
 - Ghost encounter: -666 points
+### Main Menu
+Access all the features of the game by pressing LEFT or RIGHT. Confirm selection with A or B.
 
 ## How to play
 ### Starting the game
