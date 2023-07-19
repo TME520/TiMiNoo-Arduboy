@@ -552,6 +552,7 @@ void checkButton()
       currentSequence = 0;
       generalCounter = 0;
     } else if (gameMode == 10) {
+      generalCounter = 0;
       if (arduboy.justPressed(LEFT_BUTTON)) {
         currentSequence -= 1;
         if (currentSequence < 0) {
