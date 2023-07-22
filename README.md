@@ -5,7 +5,7 @@ Cute 1 bit VPet for Arduboy - Feed, cuddle, clean and educate your own unique ca
 
 ![TiMiNoo logo](./assets/logo/2.png "TiMiNoo logo")
 
-## Current version: 1.2.11
+## Current version: 1.2.12
 
 ## Presentation
 
