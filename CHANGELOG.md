@@ -1,3 +1,6 @@
+# 2023-07-23
+- Updated README (product presentation)
+
 # 2023-07-22
 - WIP: TiMiNoo Arduboy version 1.2.12
 - New: Statistics screen (press UP or DOWN)
