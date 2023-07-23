@@ -46,8 +46,7 @@ long randomNumber = 0;
 // Cat status variables
 // Status metrics
 // 0 = depleted, 1 = low, 2 = average, 3 = full
-// long catHunger = random(1, 4);
-long catHunger = 1;
+long catHunger = random(1, 4);
 long catHygiene = random(1, 4);
 long catMorale = random(1, 4);
 long catEducation = random(1, 3);
@@ -544,9 +543,12 @@ void checkButton()
           gameMode = 4;
           break;
       }
+    } else if (gameMode == 11) {
+      gameMode = 0;
+      currentSequence = 0;
+      generalCounter = 0;
     }
   } else if ((arduboy.justPressed(LEFT_BUTTON)) || (arduboy.justPressed(RIGHT_BUTTON))) {
-    // Arrows
     if (gameMode == 0) {
       gameMode = 10;
       currentSequence = 0;
@@ -564,6 +566,18 @@ void checkButton()
           currentSequence = 0;
         }
       }
+    }
+  } else if ((arduboy.justPressed(UP_BUTTON)) || (arduboy.justPressed(DOWN_BUTTON))) {
+    if (gameMode == 0) {
+      gameMode = 11;
+      currentSequence = 0;
+      generalCounter = 0;
+    } else if (gameMode == 11) {
+      currentSequence += 1;
+      if (currentSequence > 4) {
+        currentSequence = 0;
+      }
+      generalCounter = 0;
     }
   }
 }
@@ -1597,11 +1611,65 @@ void loop() {
         gameMode = 0;
       }
       break;
+    case 11:
+      // Statistics screen
+      arduboy.setCursor(0, 10);
+      switch (currentSequence) {
+        case 0:
+          arduboy.print(F("|||     Hunger    |||"));
+          gamePick = catHunger;
+          Sprites::drawSelfMasked(4, 28, pizza_26x28, 0);
+          break;
+        case 1:
+          arduboy.print(F("|||     Hygiene   |||"));
+          gamePick = catHygiene;
+          Sprites::drawSelfMasked(4, 28, bubbles_30x30, 0);
+          break;
+        case 2:
+          arduboy.print(F("|||    Education  |||"));
+          gamePick = catEducation;
+          Sprites::drawSelfMasked(4, 28, study_26x28, 0);
+          break;
+        case 3:
+          arduboy.print(F("|||     Morale    |||"));
+          gamePick = catMorale;
+          Sprites::drawSelfMasked(4, 30, cuddle_24x24, 0);
+          break;
+        case 4:
+          arduboy.print(F("|||      Fun      |||"));
+          gamePick = catEntertainment;
+          Sprites::drawSelfMasked(4, 32, play_32x20, 0);
+          break;
+      }
+      arduboy.setCursor(64, 40);
+      switch (gamePick) {
+        case 0:
+          arduboy.print(F("---"));
+          break;
+        case 1:
+          arduboy.print(F("[]"));
+          break;
+        case 2:
+          arduboy.print(F("[][]"));
+          break;
+        case 3:
+          arduboy.print(F("[][][]"));
+          break;
+      }
+      arduboy.drawFastHLine(0, 8, 127, WHITE);
+      arduboy.drawFastHLine(0, 18, 127, WHITE);
+      generalCounter += 1;
+      if (generalCounter>48) {
+        generalCounter = 0;
+        currentSequence = 0;
+        gameMode = 0;
+      }
+      break;
     case 99:
       // Show version
       Sprites::drawSelfMasked(0, 0, timinoo_logo, 0);
       arduboy.setCursor(0, 57);
-      arduboy.print(F("        v1.2.11      "));
+      arduboy.print(F("        v1.2.12      "));
       generalCounter += 1;
       if (generalCounter>24) {
         gameMode = 0;
