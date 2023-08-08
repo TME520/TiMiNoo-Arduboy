@@ -288,7 +288,7 @@ const uint8_t PROGMEM super_happy_28x28[] = {
 0x00, 0x00, 0x00, 0x00, 0x03, 0x03, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 
 };
 
-const uint8_t PROGMEM cindy_28x26[] = {
+const uint8_t PROGMEM sophie_28x26[] = {
 28, 26,
 0x0f, 0x0f, 0xf3, 0xf3, 0xfc, 0xfc, 0x0f, 0x0f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x0f, 0x0f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0xfc, 0xf3, 0xf3, 0x0f, 0x0f, 
 0x3c, 0x3c, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf3, 0xf3, 0xf3, 0xf3, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x3f, 0x3f, 0x00, 0x00, 
@@ -1194,7 +1194,7 @@ void loop() {
           // Hello
           Sprites::drawSelfMasked(-24, 13, cat_sitting_001_48x48, 0);
           if (randomVisit<1000) {
-            Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+            Sprites::drawSelfMasked(96, 14, sophie_28x26, 0);
           } else if (randomVisit > 3000) {
             Sprites::drawSelfMasked(96, 14, chichi_30x28, 0);
           }
@@ -1213,11 +1213,11 @@ void loop() {
           switch (randomVisit) {
             case 0 ... 499:
               tinyfont.print(F("I got matcha tea!"));
-              Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+              Sprites::drawSelfMasked(96, 14, sophie_28x26, 0);
               break;
             case 500 ... 999:
               tinyfont.print(F("I got coco cake!"));
-              Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+              Sprites::drawSelfMasked(96, 14, sophie_28x26, 0);
               break;
             case 3001 ... 3100:
               // Strawberry
@@ -1243,7 +1243,7 @@ void loop() {
           switch (randomVisit) {
             case 0 ... 999:
               tinyfont.print(F("Have some <3"));
-              Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+              Sprites::drawSelfMasked(96, 14, sophie_28x26, 0);
               if (randomVisit<500) {
                 Sprites::drawSelfMasked(49, 14, matcha_30x32, 0);
               } else if (randomVisit<1000){
@@ -1342,7 +1342,7 @@ void loop() {
           tinyfont.setCursor(45, 59);
           switch (randomVisit) {
             case 0 ... 999:
-              Sprites::drawSelfMasked(96, 14, cindy_28x26, 0);
+              Sprites::drawSelfMasked(96, 14, sophie_28x26, 0);
               tinyfont.print("That was yummy!");
               break;
             case 3001 ... 3136:
@@ -1406,7 +1406,7 @@ void loop() {
     case 9:
       // Game: Kiss Cuss
       if (currentSequence == 0) {
-        // Display random character (Koko, Cindy, ChiChi or Ghost)
+        // Display random character (Koko, Sophie, ChiChi or Ghost)
         checkButton();
         arduboy.setCursor(0, 10);
         arduboy.print(F("[B]  Kiss ~ Cuss  [A]"));
@@ -1422,7 +1422,7 @@ void loop() {
             Sprites::drawSelfMasked(randomGameIconXPos, 28, koko_le_snail_26x22, 0);
             break;
           case 1:
-            Sprites::drawSelfMasked(randomGameIconXPos, 28, cindy_28x26, 0);
+            Sprites::drawSelfMasked(randomGameIconXPos, 28, sophie_28x26, 0);
             break;
           case 2:
             Sprites::drawSelfMasked(randomGameIconXPos, 28, chichi_30x28, 0);
