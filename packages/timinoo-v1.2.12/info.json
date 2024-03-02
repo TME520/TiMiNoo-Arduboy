@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "title": "TiMiNoo",
+  "description": "A virtual pet for Arduboy - Feed, cuddle, clean and educate your own unique cat",
+  "author": "TME520",
+  "version": "1.2.12",
+  "date": "2024-03-02",
+  "genre": "Misc",
+  "publisher": "Arduboy Community",
+  "idea": "TME520",
+  "code": "TME520",
+  "art": "piiixl, elthen, TME520",
+  "sound": "",
+  "url": "http://community.arduboy.com/t/arduboy-game-format-guide-arduboy-files/2784",
+  "sourceUrl": "https://github.com/TEAMarg/arduboy-file-format/blob/master/info.json",
+  "email": "tme520@gmail.com",
+  "companion": "http://tme520.com/",
+  "banner": "banner.png",
+  "screenshots": [
+    {
+      "title": "Home screen",
+      "filename": "timinoo_happy.png"
+    },
+    {
+      "title": "TiMiNoo needs to be washed",
+      "filename": "need_wash.png"
+    },
+    {
+      "title": "Check the stats",
+      "filename": "stats-menu_01.png"
+    },
+    {
+      "title": "Play at the Catsino",
+      "filename": "playing.png"
+    },
+    {
+      "title": "Feed TiMiNoo",
+      "filename": "feeding2.png"
+    },
+    {
+      "title": "Educate your cat",
+      "filename": "educating2.png"
+    }
+  ],
+  "binaries": [
+    {
+      "title": "TiMiNoo for Arduboy",
+      "filename": "timinoo.hex",
+      "device": "Arduboy"
+    }
+  ],
+  "buttons": [
+    {
+      "control": "A",
+      "action": "Start the Kiss Cuss game when TiMiNoo is happy, otherwise start an action depending on what TiMiNoo needs"
+    },
+    {
+      "control": "B",
+      "action": "Start the Kiss Cuss game when TiMiNoo is happy, otherwise start an action depending on what TiMiNoo needs"
+    },
+    {
+      "control": "Up",
+      "action": "Show TiMiNoo stats (hunger, hygiene, education, morale, fun)"
+    },
+    {
+      "control": "Down",
+      "action": "Show TiMiNoo stats (hunger, hygiene, education, morale, fun)"
+    },
+    {
+      "control": "Left",
+      "action": "Opens the actions menu"
+    },
+    {
+      "control": "Right",
+      "action": "Opens the actions menu"
+    },
+    {
+      "control": "A + B",
+      "action": "Wash your cat faster"
+    }
+  ],
+  "eeprom": {
+    "variable": false,
+    "start": 16,
+    "end": 20
+  }
+}
