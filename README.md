@@ -123,3 +123,10 @@ Press the button in order to scrub all that dust off its fur.
 Use [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) to upload `timinoo.ino` to your Arduboy.
 ## Commercial status
 TiMiNoo is an open source project that is not meant to be sold. Please note the cat sprites and the frames are under a [Creative Commons Attribution-NonCommercial 4.0 International CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license that explicitly prohibits commercial use. I'm 100% OK with this.
+## Credits
+[Buttons](https://mesiiue.itch.io/buttons) by [Mesiiue](https://mesiiue.itch.io/)
+
+[Cat](https://elthen.itch.io/2d-pixel-art-cat-sprites) by [Elthen](https://elthen.itch.io/)
+
+[Sprites](https://piiixl.itch.io/1-bit-16px-icons-part-1) by [PiiiXL](https://piiixl.itch.io/)
+
