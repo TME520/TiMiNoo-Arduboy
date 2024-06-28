@@ -29,7 +29,7 @@ Tamagotchi lovers could compare it to a Nano.
 
 ## Cheat sheet
 
-![TiMiNoo cheat sheet](./assets/manual/buttons/cheat sheet.png "TiMiNoo cheat sheet")
+![TiMiNoo cheat sheet](./assets/manual/buttons/cheat_sheet.png "TiMiNoo cheat sheet")
 
 ## Features
 ### 3 mini games
