@@ -27,6 +27,10 @@ TiMiNoo is a simple yet feature-rich virtual cat, a companion for busy days: Cud
 
 Tamagotchi lovers could compare it to a Nano.
 
+## Cheat sheet
+
+![TiMiNoo cheat sheet](./assets/manual/buttons/cheat sheet.png "TiMiNoo cheat sheet")
+
 ## Features
 ### 3 mini games
 #### Catsino ![bar](./assets/icons/bar.png "BAR +1 of all !!!") ![dollar](./assets/icons/dollar.png "Double your score and replay")
@@ -130,3 +134,5 @@ TiMiNoo is an open source project that is not meant to be sold. Please note the 
 
 [Sprites](https://piiixl.itch.io/1-bit-16px-icons-part-1) by [PiiiXL](https://piiixl.itch.io/)
 
+## Itch.io
+The game is available for free on [Itch.io](https://tme520.itch.io/timinoo-arduboy)
