@@ -18,7 +18,7 @@
 >
 > **Age range**: 7 to 77 years old
 
-TiMiNoo ("Tee Me Noo") is a virtual cat providing minimal distraction, fully office-compatible, single button action, no sound, no death.
+TiMiNoo ("Tee Me Noo") is a virtual cat providing minimal distraction, fully office-compatible, simple gameplay, no sound and no death.
 The cat is different on each run, its characteristics (appetite, cleanliness, cleverness, playfulness) are randomly picked at startup.
 
 TiMiNoo has been created with busy people in mind: The gameplay is very simple and fluid on purpose, as this game is meant to be enjoyed in a work environment.
